@@ -28,6 +28,64 @@ fields.3: Chapter Title
 data.url: books.csv
 data.joins.0.url: chapters.csv
 data.joins.0.leftFields.0: BookId
+
+variables.distMin.number: 0
+variables.distMax.number: 100000
+variables.gainMin.number: 0
+variables.gainMax.number: 100000
+
+filters.0.field: BookId
+filters.0.includes.0.variable: bookId
+filters.1.field: ChapterId
+filters.1.includes.0.variable: chapterId
+
+sorts.0.field: BookId
+sorts.1.field: ChapterId
+sorts.2.field: Chapter Title
+
+links.0.name: Chapter Link
+links.0.text.field: Chapter Title
+links.0.url.string: #url=hikes.md&variables.bookId.number={{BookId}}&variables.chapterId.number={{ChapterId}}
+
+links.1.name: 0 - 5 mi
+links.1.text.string: Link
+links.1.url.string: #url=hikes.md&variables.bookId.number={{BookId}}&variables.chapterId.number={{ChapterId}}&variables.distMax.number=5&variables.gainMin.number={{gainMin}}&variables.gainMax.number={{gainMax}}
+
+links.2.name: 5 - 10 mi
+links.2.text.string: Link
+links.2.url.string: #url=hikes.md&variables.bookId.number={{BookId}}&variables.chapterId.number={{ChapterId}}&variables.distMin.number=5&variables.distMax.number=10&variables.gainMin.number={{gainMin}}&variables.gainMax.number={{gainMax}}
+
+links.3.name: 10+ mi
+links.3.text.string: Link
+links.3.url.string: #url=hikes.md&variables.bookId.number={{BookId}}&variables.chapterId.number={{ChapterId}}&variables.distMin.number=10&variables.gainMin.number={{gainMin}}&variables.gainMax.number={{gainMax}}
+
+links.4.name: 0 - 500 ft
+links.4.text.string: Link
+links.4.url.string: #url=hikes.md&variables.bookId.number={{BookId}}&variables.chapterId.number={{ChapterId}}&variables.gainMax.number=500&variables.distMin.number={{distMin}}&variables.distMax.number={{distMax}}
+
+links.5.name: 500 - 1500 ft
+links.5.text.string: Link
+links.5.url.string: #url=hikes.md&variables.bookId.number={{BookId}}&variables.chapterId.number={{ChapterId}}&variables.gainMin.number=500&variables.gainMax.number=1500&variables.distMin.number={{distMin}}&variables.distMax.number={{distMax}}
+
+links.6.name: 1500+ ft
+links.6.text.string: Link
+links.6.url.string: #url=hikes.md&variables.bookId.number={{BookId}}&variables.chapterId.number={{ChapterId}}&variables.gainMin.number=1500&variables.distMin.number={{distMin}}&variables.distMax.number={{distMax}}
+
+categoryFields.0: BookId
+categoryFields.1: ChapterId
+categoryFields.2: Chapter Link
+fields.0: 0 - 5 mi
+fields.1: 5 - 10 mi
+fields.2: 10+ mi
+fields.3: 0 - 500 ft
+fields.4: 500 - 1500 ft
+fields.5: 1500+ ft
+~~~
+
+~~~ data-table
+data.url: books.csv
+data.joins.0.url: chapters.csv
+data.joins.0.leftFields.0: BookId
 data.joins.1.url: hikes.csv
 data.joins.1.leftFields.0: BookId
 data.joins.1.leftFields.1: ChapterId
