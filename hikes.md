@@ -1,5 +1,5 @@
-[Home](#url=README.md) |
-[Books](#url=books.md)
+[Home](#url=README.md&variables=) |
+[Books](#url=books.md&variables=)
 
 
 # Hikes
