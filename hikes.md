@@ -6,13 +6,11 @@
 
 ~~~ data-table
 data.url: books.csv
-data.joins.0.url: chapters.csv
-data.joins.0.leftFields.0: BookId
 
 filters.0.field: BookId
 filters.0.includes.0.variable: bookId
-filters.1.field: ChapterId
-filters.1.includes.0.variable: chapterId
+
+sorts.0.field: BookId
 
 links.0.name: Book Link
 links.0.text.field: Book Title
@@ -20,8 +18,6 @@ links.0.url.string: #url=chapters.md&variables.bookId.number={{BookId}}
 
 fields.0: BookId
 fields.1: Book Link
-fields.2: ChapterId
-fields.3: Chapter Title
 ~~~
 
 ~~~ data-table
@@ -41,7 +37,6 @@ filters.1.includes.0.variable: chapterId
 
 sorts.0.field: BookId
 sorts.1.field: ChapterId
-sorts.2.field: Chapter Title
 
 links.0.name: Chapter Link
 links.0.text.field: Chapter Title

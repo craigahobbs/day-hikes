@@ -34,7 +34,6 @@ aggregation.measures.0.function: Count
 
 sorts.0.field: BookId
 sorts.1.field: ChapterId
-sorts.2.field: Chapter Title
 
 links.0.name: Chapter Link
 links.0.text.field: Chapter Title
