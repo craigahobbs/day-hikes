@@ -18,11 +18,11 @@ aggregation.measures.0.function: Count
 
 sorts.0.field: Book Title
 
-links.0.name: Book Link
+links.0.name: Book
 links.0.text.field: Book Title
 links.0.url.string: #url=chapters.md&variables.bookId.number={{BookId}}
 
-categoryFields.0: Book Link
+categoryFields.0: Book
 categoryFields.1: Author
 fields.0: COUNT(HikeId)
 ~~~

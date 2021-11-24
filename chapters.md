@@ -35,7 +35,7 @@ aggregation.measures.0.function: Count
 sorts.0.field: BookId
 sorts.1.field: ChapterId
 
-links.0.name: Chapter Link
+links.0.name: Chapter
 links.0.text.field: Chapter Title
 links.0.url.string: #url=hikes.md&variables.bookId.number={{BookId}}&variables.chapterId.number={{ChapterId}}
 
@@ -65,7 +65,7 @@ links.6.url.string: #url=hikes.md&variables.bookId.number={{BookId}}&variables.c
 
 categoryFields.0: BookId
 categoryFields.1: ChapterId
-categoryFields.2: Chapter Link
+categoryFields.2: Chapter
 fields.0: COUNT(HikeId)
 fields.1: 0 - 5 mi
 fields.2: 5 - 10 mi

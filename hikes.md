@@ -12,12 +12,12 @@ filters.0.includes.0.variable: bookId
 
 sorts.0.field: BookId
 
-links.0.name: Book Link
+links.0.name: Book
 links.0.text.field: Book Title
 links.0.url.string: #url=chapters.md&variables.bookId.number={{BookId}}
 
 fields.0: BookId
-fields.1: Book Link
+fields.1: Book
 ~~~
 
 ~~~ data-table
@@ -38,7 +38,7 @@ filters.1.includes.0.variable: chapterId
 sorts.0.field: BookId
 sorts.1.field: ChapterId
 
-links.0.name: Chapter Link
+links.0.name: Chapter
 links.0.text.field: Chapter Title
 links.0.url.string: #url=hikes.md&variables.bookId.number={{BookId}}&variables.chapterId.number={{ChapterId}}
 
@@ -68,7 +68,7 @@ links.6.url.string: #url=hikes.md&variables.bookId.number={{BookId}}&variables.c
 
 categoryFields.0: BookId
 categoryFields.1: ChapterId
-categoryFields.2: Chapter Link
+categoryFields.2: Chapter
 fields.0: 0 - 5 mi
 fields.1: 5 - 10 mi
 fields.2: 10+ mi
