@@ -1,0 +1,32 @@
+BookId,ChapterId,Chapter Title
+1,1,Issaquah Alps
+1,2,North Bend
+1,3,Snoqualmie Pass Corridor: West
+1,4,Snoqualmie Pass Area
+1,5,Snoqualmie Pass Corridor: East
+1,6,Teanaway and Blewett Country
+1,7,Ellensburg Basin
+1,8,Enumclaw Plateau
+2,1,Islands and Puget Sound: Whidbey and Camano
+2,2,Islands and Puget Sound: Puget Lowlands
+2,3,Skykomish River Valley: Sultan Basin
+2,4,Skykomish River Valley: US 2 West
+2,5,Skykomish River Valley: North Fork Skykomish River Valley
+2,6,Nason Creek and Wenatchee River Valleys: US 2 East
+2,7,Nason Creek and Wenatchee River Valleys: Icicle River Valley
+2,8,Lake Wenatchee: Little Wenatchee and White River Valleys
+2,9,Lake Wenatchee: Chiwawa River Valley
+2,10,Entiat Mountains: Mad River Valley
+2,11,Entiat Mountains: Entiat River Valley
+2,12,Lake Chelan
+2,13,Peshastin Creek and Blewett Pass
+2,14,Wenatchee
+3,1,White Pass Corridor / Cowlitz River Valley
+3,2,Dark Divide / Cispus Area
+3,3,Lewis River Region
+3,4,Goat Rocks Region
+3,5,Mount Adams Area
+3,6,Indian Heaven / Trapper Creek Region
+3,7,Siouxon / Silver Star Area
+3,8,Mount St. Helens Area
+3,9,The Columbia River Gorge Area

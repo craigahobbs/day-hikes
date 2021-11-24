@@ -1,0 +1,13 @@
+BookId,ChapterId,HikeId,Hike Title,Rating,Difficulty,Distance (mi),Elevation Gain (ft),High Point (ft),Season
+1,1,1,Wildside Trail - De Leo Wall,3,2,4,350,950,Year-round
+1,1,2,Red Town Meadow,3,1,1.5,150,800,Year-round
+1,2,19,Bare Mountain,3,5,8,3250,5353,June-Oct
+1,2,20,Tolt MacDonald Park,3,1,2.5,100,150,Year-round
+2,1,1,Double Bluff,4,1,4,0,0,Year-round
+2,1,2,South Whidbey State Park,2,2,2.7,200,400,Year-round
+2,3,12,Greider Lakes,3,3,8.6,1370,2930,June-Nov
+2,3,13,Boulder Lake,3,4,13.8,2140,3700,June-Nov
+3,1,1,High Rock,5,4,3.5,1400,5658,late Jun-Oct
+3,1,2,Purcell Lookout,5,5,7,2600,5442,late June-Oct
+3,2,16,Cispus Braille Trail,2,1,1,0,7337,May-October
+3,2,17,Burley Mountain,2,2,1.5,400,5304,July-Oct
