@@ -1,4 +1,4 @@
-[Home](#url=README.md&variables=)
+[Home](#url=README.md)
 
 
 # Books
