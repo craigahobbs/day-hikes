@@ -43,7 +43,7 @@ links.1.name: Short Distance
 links.1.text.string: 0 - 5 mi
 links.1.url.string: #url=hikes.md&variables.bookId.number={{BookId}}&variables.chapterId.number={{ChapterId}}&variables.distMax.number=5
 
-links.2.name: Medium Distance
+links.2.name: Med. Distance
 links.2.text.string: 5 - 10 mi
 links.2.url.string: #url=hikes.md&variables.bookId.number={{BookId}}&variables.chapterId.number={{ChapterId}}&variables.distMin.number=5&variables.distMax.number=10
 
@@ -55,7 +55,7 @@ links.4.name: Low Gain
 links.4.text.string: 0 - 500 ft
 links.4.url.string: #url=hikes.md&variables.bookId.number={{BookId}}&variables.chapterId.number={{ChapterId}}&variables.gainMax.number=500
 
-links.5.name: Moderate Gain
+links.5.name: Mod. Gain
 links.5.text.string: 500 - 1500 ft
 links.5.url.string: #url=hikes.md&variables.bookId.number={{BookId}}&variables.chapterId.number={{ChapterId}}&variables.gainMin.number=500&variables.gainMax.number=1500
 
@@ -68,9 +68,9 @@ categoryFields.1: ChapterId
 categoryFields.2: Chapter
 fields.0: COUNT(HikeId)
 fields.1: Short Distance
-fields.2: Medium Distance
+fields.2: Med. Distance
 fields.3: Long Distance
 fields.4: Low Gain
-fields.5: Moderate Gain
+fields.5: Mod. Gain
 fields.6: High Gain
 ~~~
