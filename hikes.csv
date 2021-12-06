@@ -134,11 +134,130 @@ BookId,ChapterId,HikeId,Hike Title,Rating,Difficulty,Distance (mi),Elevation Gai
 1,8,133,Blowout Mountain,3,2,6.8,1800,5655,July-Oct
 1,8,134,Pyramid Peak,3,2,6.5,1000,5715,June-Oct
 1,8,135,Greenwater-Echo Lake,3,3,14,1600,4100,May-Nov
-2,1,1,Double Bluff,4,1,4,0,0,Year-round
-2,1,2,South Whidbey State Park,2,2,2.7,200,400,Year-round
-2,3,12,Greider Lakes,3,3,8.6,1370,2930,June-Nov
-2,3,13,Boulder Lake,3,4,13.8,2140,3700,June-Nov
-3,2,16,Cispus Braille Trail,2,1,1,0,7337,May-Oct
-3,2,17,Burley Mountain,2,2,1.5,400,5304,July-Oct
 3,1,1,High Rock,5,4,3.5,1400,5658,late Jun-Oct
 3,1,2,Purcell Lookout,5,5,7,2600,5442,late June-Oct
+3,1,3,Pompey Peak,3,4,3.5,2000,5180,late June-Oct
+3,1,4,Tatoosh Ridge,4,4,8,2600,5400,July-Oct
+3,1,5,Sand Lake,3,2,6,900,5300,June-Nov
+3,1,6,Cramer Mountain Loop,3,3,14,1700,5900,June-Oct
+3,1,7,Round Mountain,3,3,4.5,1700,5900,June-Oct
+3,1,8,Clear Fork-Lily Lake,3,1,3,200,3600,June-early Nov
+3,1,9,Clear Lost,4,5,13,2600,6376,July-early Oct
+3,1,10,South Point Lookout,3,4,7,2900,5980,late June-Oct
+3,1,11,Dry Creek,3,5,7,2800,3815,late June-early Nov
+3,1,12,Ironstone-Burnt Mountain,4,3,12,850,6596,July-Sept
+3,1,13,Tieton Meadows,3,4,3.5,200,3600,May-Nov
+3,1,14,Bear Creek Mountain,4,5,15,4000,7337,July-Oct
+3,1,15,North Fork Tieton-Tieton Pass,4,5,11.7,2500,5800,July-Nov
+3,2,16,Cispus Braille Trail,2,1,1,0,7337,May-Oct
+3,2,17,Burley Mountain,2,2,1.5,400,5304,July-Oct
+3,2,18,Hamilton Buttes,3,2,2,700,5772,May-Oct
+3,2,19,Jumbo Peak,4,3,6,1300,5801,June-Oct
+3,2,20,Sunrise Peak,4,3,3,1400,5892,June-Oct
+3,2,21,Dark Meadow,5,4,7,500,5400,July-Oct
+3,2,22,Juniper Ridge,5,4,6,1900,5611,July-Oct
+3,2,23,Toungue Mountain,3,3,3,1200,4838,July-Oct
+3,2,24,Langille Peak,4,4,5,2100,5372,July-Oct
+3,2,25,McCoy Peak,4,4,8.4,3200,5856,July-Oct
+3,2,26,Bishop Ridge,3,5,9,3600,5200,July-Oct
+3,2,27,Hat Rock-Yellow Jacket Pass,3,3,5.5,1200,5200,June-Oct
+3,2,28,Spring Creek-Green Mountain,3,3,8.2,1200,5107,June-Oct
+3,3,29,High Lakes Ramble,3,2,5.4,200,4329,June-Nov
+3,3,30,Spencer Butte,3,2,3,800,4247,June-Nov
+3,3,31,Cussed Hollow,3,3,5,600,3400,May-Nov
+3,3,32,Spencer Creek (Bluff) Trail,2,4,6,1800,3400,June-Nov
+3,3,33,Craggy Peak,4,3,11,1800,5275,June-Oct
+3,3,34,Wright Meadow,4,2,3,100,3400,June-Oct
+3,3,35,Snagtooth Mountain,5,2,3.5,700,4900,June-Oct
+3,3,36,Quartz Ridge-Summit Prarie,3,3,6,1800,5245,June-Oct
+3,3,37,Quartz Creek,3,3,8,500,2500,June-Nov
+3,3,38,French Creek,4,4,7,700,3800,June-Nov
+3,3,39,Badger Peak,2,1,1.75,700,5664,Mar-Nov
+3,3,40,Curley Creek,4,1,1,100,1250,Mar-Nov
+3,3,41,Big Creek Falls,4,1,1.5,300,1900,Mar-Nov
+3,3,42,Speed onto Lewis River,3,2,2,400,1900,Mar-Nov
+3,3,43,Cedar Flats Nature Trail,2,1,1,400,1900,Mar-Nov
+3,4,44,Shoe Lake,4,3,14,2200,6600,July-Oct
+3,4,45,Goat Lake-Jordan Basin,5,5,12,2000,6600,July-Oct
+3,4,46,Snowgrass Flat,4,4,8.2,1600,5800,July-Oct
+3,4,47,Nannie Ridge-Sheep Lake,4,4,9,1800,5800,July-Oct
+3,4,48,Walupt Creek Loop,5,4,12,1800,5800,July-Oct
+3,4,49,Coleman Weedpatch,3,4,9,1900,5700,July-Oct
+3,4,50,Mosquito Lake-Three Peaks,3,3,10,1700,4900,July-Oct
+3,4,51,Packwood Lake,3,2,10,600,3200,late May-Nov
+3,4,52,Glacier Lake,3,2,4,800,2905,late June-Oct
+3,4,53,Johnson Peak-Lily Basin,3,4,12,1900,6100,late June-Oct
+3,4,54,Surprise Lake,3,4,10,1200,5255,late June-Oct
+3,5,55,Takhlakh Lake Loop,3,2,3,90,4460,late June-Oct
+3,5,56,Council Bluff,2,2,3,1000,5180,late June-Oct
+3,5,57,Potato Hill,4,3,3,550,5387,late June-Oct
+3,5,58,Muddy Fork Lava Bed,3,4,5,500,4900,late June-Oct
+3,5,59,Burnt Rock,4,4,13,1400,6100,late June-Oct
+3,5,60,Killen Meadows,4,5,10,2300,6900,late June-Oct
+3,5,61,Horseshoe Meadow,4,4,11,1900,6100,late June-Oct
+3,5,62,Looking Glass Lake,4,5,15,2400,6000,late June-Oct
+3,5,63,Stagman Ridge-The Bumper,4,5,12,1900,6100,late June-Oct
+3,5,64,Crofton Butte,2,3,4,600,4800,late May-Nov
+3,5,65,Crescent Glacier,4,5,7,3800,8500,late June-Oct
+3,5,66,Aiken Lava Bed West-Cold Springs,4,5,9,2400,6000,late June-Oct
+3,5,67,Gotchen Creek-Aiken Lava Bed East,4,5,11,2600,6300,late June-Oct
+3,5,68,Snipes Mountain-Pine Way,2,3,5,500,4800,late May-Nov
+3,6,69,Bird Mountain,4,5,7,1200,5200,late May-Nov
+3,6,70,Blue Lake,4,3,13,1200,5200,late May-Nov
+3,6,71,Gifford Peak,4,3,11,700,5200,late May-Nov
+3,6,72,Indian Racetrack,3,3,5,700,5200,late May-Nov
+3,6,73,Sleeping Beauty Peak,3,3,3,800,4900,late May-Nov
+3,7,74,Huffman Peak,4,5,12,2400,4106,late May-Nov
+3,7,75,Lower Siouxon Creek,3,2,6.5,500,1700,late May-Nov
+3,7,76,Upper Siouxon-Horseshoe Falls,4,3,4.5,500,1400,late May-Nov
+3,7,77,Horseshoe Ridge,5,5,8,2300,3495,late May-Nov
+3,7,78,Zig Zag Lake,3,2,1,600,4000,late May-Nov
+3,7,79,West Crater,3,2,1.6,400,4000,late May-Nov
+3,7,80,Observation Peak,3,2,5,600,4207,late May-Nov
+3,7,81,Silver Star Mountain,3,2,4,1000,4390,late May-Nov
+3,8,82,Silver Lake-Sequest,3,2,6,100,4390,late May-Nov
+3,8,83,Boundary West,4,4,4,1800,4390,late June-Nov
+3,8,84,Hummocks Trail,3,3,2.3,100,2500,late June-Nov
+3,8,85,Lakes Trail,3,3,6,500,3000,late June-Nov
+3,8,86,South Coldwater Trail,5,4,10,2100,4600,late June-Nov
+3,8,87,Harrys Ridge,5,3,8,200,4400,late June-Nov
+3,8,88,Goat Creek,3,3,5,400,2400,late May-Nov
+3,8,89,Vanson Peak,4,2,5,600,4948,late May-Nov
+3,8,90,Goat Mountain,5,4,6,1600,5025,late May-Nov
+3,8,91,Ryan Lake,2,1,1,100,3300,late May-Nov
+3,8,92,Whittier Ridge-Lakes Loop,5,5,14.2,2000,5883,late May-Nov
+3,8,93,Norway Pass,5,3,4.5,300,4500,late May-Nov
+3,8,94,Independence Pass Loop,5,3,8,300,4500,late May-Nov
+3,8,95,Harmony Falls,3,2,2,700,4000,late May-Nov
+3,8,96,Meta Lake,3,1,1.3,50,4090,late May-Nov
+3,8,97,Plains of Abraham Loop,5,5,8,700,4885,late May-Nov
+3,8,98,Truman Trail-Pumice Plains,4,3,10,200,4000,late May-Nov
+3,8,99,Windy Ridge Trail,5,5,4,200,4200,late May-Nov
+3,8,100,Lava Canyon,4,5,5,1600,2800,late May-Nov
+3,8,101,Ape Canyon,3,4,11,1300,2800,late May-Nov
+3,8,102,Smith Creek,3,4,6,200,1800,late May-Nov
+3,8,103,Jackpine Shelter,3,1,1,200,1800,late May-Nov
+3,8,104,Trail of Two Forests,3,1,0.5,50,1885,late May-Nov
+3,8,105,Ape Caves,3,1,2.6,200,2475,late May-Nov
+3,8,106,June Lake,3,1,2.8,200,2480,late May-Nov
+3,8,107,Ptarmigan Trail,5,4,4.5,1000,4700,late May-Nov
+3,8,108,Blue Lake-South Fork Toutle,5,4,4.5,1000,4700,late May-Nov
+3,8,109,Sheep Canyon,4,3,4.5,1200,4600,late May-Nov
+3,8,110,Butte Camp,3,3,5,700,4000,late May-Nov
+3,8,111,Kalama River,3,3,4,200,3800,late May-Nov
+3,9,112,Lower Falls Creek Trail,3,3,5,800,2200,late May-Nov
+3,9,113,Upper Falls Creek Trail,3,3,5,1100,2400,late May-Nov
+3,9,114,Lava Butte,3,3,2.5,1100,2400,late May-Nov
+3,9,115,Bunker Hill,3,3,4,1300,2400,late May-Nov
+3,9,116,Big Lava Bed,4,4,13,600,4000,late May-Nov
+3,9,117,Panther Creek Experimental Forest,4,4,7,1200,4000,late May-Nov
+3,9,118,Little Huckleberry Mountain,3,3,5,1800,4781,May-Nov
+3,9,119,Monte Cristo,3,3,5,400,3000,May-Nov
+3,9,120,Monte Carlo,3,3,4,800,4078,May-Nov
+3,9,121,Dog Mountain,5,4,8,2800,2948,Mar-Nov
+3,9,122,Dallas Mountain,4,3,8,2500,2825,Feb-Nov
+3,9,123,Hamilton Mountain,3,3,9,2000,2438,Feb-Nov
+3,9,124,Hardy and Rodney Falls,5,4,3.5,1200,1648,late June-Oct
+3,9,125,Beacon Rock,5,3,2,550,848,Feb-Nov
+2,1,1,Double Bluff,4,1,4,0,0,Year-round
+2,1,2,South Whidbey State Park,2,2,2.7,200,400,Year-round
