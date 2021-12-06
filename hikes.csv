@@ -384,3 +384,58 @@ BookId,ChapterId,HikeId,Hike Title,Rating,Difficulty,Distance (mi),Elevation Gai
 3,9,123,Hamilton Mountain,3,3,9,2000,2438,Feb-Nov
 3,9,124,Hardy and Rodney Falls,5,4,3.5,1200,1648,late June-Oct
 3,9,125,Beacon Rock,5,3,2,550,848,Feb-Nov
+4,1,1,Parke Butte-Railroad Grade,5,2,7,2150,5400,Jul-Oct
+4,1,2,Scott Paul Trail,4,2,7.5,1800,5050,Aug-Oct
+4,1,3,Anderson Butte-Watson and Anderson Lakes,4,3,7,2000,5350,Jul-Oct
+4,1,4,Shadow of the Sentinels Trail,2,1,0.5,30,1020,Year-round
+4,1,5,Baker River Trail,3,1,5.2,400,900,Year-round
+4,1,6,Baker Lake Trail,3,2,9,250,980,Year-round
+4,1,7,Sauk Mountain,3,2,4.2,1200,5500,Jul-Oct
+4,2,8,Hidden Lake Lookout,5,4,9,3400,6890,Jul-Oct
+4,2,9,Boston Basin,4,5,8,3200,6400,Jul-Oct
+4,2,10,Cascade Pass-Sahale Arm,5,4,7.4,1800,7000,Jul-Oct
+4,3,11,Thornton Lakes-Trappers Peak,5,4,10.2,2250,5964,Jul-Oct
+4,3,12,Skagit River Loop,2,1,1.8,100,570,Year-round
+4,3,13,Stetattle Creek Trail,3,2,8,800,1700,Year-round
+4,3,14,Sourdough Mountain Trail,4,5,11.4,5100,5985,June-Oct
+4,3,15,Pyramid Lake Trail,3,2,4.2,1550,2600,Year-round
+4,3,16,Diablo Lake Trail,3,2,3.8,850,2000,Year-round
+4,3,17,Thunder Knob Trail,3,2,3.8,650,1875,Year-round
+4,3,18,Thunder Creek-Fourth of July Pass,3,4,10.2,2600,3600,Spring/Fall
+4,3,19,Ross Dam,3,2,2,520,2150,May-Oct
+4,3,20,Happy Creek Forest Walk,2,1,0.3,100,2300,Jul-Oct
+4,3,21,Ruby Creek Trail,2,2,2.2,200,1850,May-Oct
+4,4,22,Easy Pass,5,4,7.4,2900,6500,Jul-Oct
+4,4,23,Lake Ann-Maple Pass Loop,5,2,3.6,2150,6850,Jul-Oct
+4,4,24,Rainy Lake,3,1,1.8,50,4800,Jul-Oct
+4,4,25,Blue Lake Trail,4,2,4.4,1050,6250,Jul-Oct
+4,4,26,Washington Pass Overlook,4,1,0.25,20,5620,Apr-Nov
+4,4,27,Cutthroat Pass Trail,5,2,11,2500,6800,Jul-Oct
+4,5,28,Driveway Butte,3,4,8,3100,5982,Spring
+4,5,29,Grasshopper Pass,5,2,11,2000,7125,Aug-Oct
+4,5,30,Slate Peak,3,1,0.5,200,7440,Aug-Oct
+4,5,31,Goat Peak Lookout,4,4,5,1600,7000,Jul-Oct
+4,6,32,Bat Caves,3,2,7,2000,2085,Year-round
+4,6,33,Fragrance Lake,3,2,5.2,1050,1230,Year-round
+4,7,34,Canyon Lake,3,2,8.3,2400,4560,June-Oct
+4,7,35,Heliotrope Ridge Trail,5,2,6,1900,5600,Jul-Oct
+4,7,36,Boyd Creek Interpretive Trail,2,1,0.5,20,1260,Year-round
+4,7,37,Skyline Divide Trail,5,2,7,2100,6250,Jul-Oct
+4,7,38,Horseshoe Bend Trail,2,1,2.4,350,1200,Year-round
+4,8,39,Church Mountain,4,4,8.4,3900,6100,Jul-Oct
+4,8,40,Damfino Lakes and Excelsior Mountain,4,2,6,1500,5600,Jul-Oct
+4,8,41,High Divide Trail via Damfino Lakes Trail,5,4,14.6,3100,5800,Jul-Oct
+4,8,42,Excelsior Pass Trail,3,4,9.2,3900,5700,Jul-Oct
+4,8,43,Welcome Pass,3,5,5,3000,5200,Jul-Oct
+4,8,44,Yellow Aster Butte,5,4,7,2550,6145,Jul-Oct
+4,8,45,Winchester Mountain Lookout,4,2,3.2,1350,6510,Jul-Oct
+4,8,46,High Pass Trail,4,2,4,1400,6000,Jul-Oct
+4,8,47,Goat Mountain,5,4,11,4200,6550,Jul-Oct
+4,8,48,Hannegan Pass and Peak,5,4,10.4,3100,6187,Jul-Oct
+4,9,49,Picture Lake,3,1,0.5,0,4100,Jul-Oct
+4,9,50,Bagley Lakes-Lower Wild Goose Trails Loop,3,1,1.5,150,4400,Jul-Oct
+4,9,51,Chain Lakes Loop,5,2,6,1850,5700,Jul-Oct
+4,9,52,Lake Ann Trail,5,2,8.4,1800,4900,Aug-Oct
+4,9,53,Artist Ridge Trail,4,1,1,170,5250,Jul-Oct
+4,9,54,Table Mountain,4,2,3,600,5700,Jul-Oct
+4,9,55,Ptarmigan Ridge Trail,5,4,12,2250,6450,Aug-Oct
