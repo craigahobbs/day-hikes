@@ -1,5 +1,5 @@
-BookId,AuthorId,Book Title
-1,1,Snoqualmie Region
-2,2,Central Cascades
-3,1,South Cascades
-4,3,North Cascades
+BookId,AuthorId,Book Title,URL
+1,1,Snoqualmie Region,https://www.amazon.com/Day-Hiking-Snoqualmie-Region-Foothills/dp/1594857687/
+2,2,Central Cascades,https://www.amazon.com/Day-Hiking-Cascades-Craig-Romano/dp/1594850941
+3,1,South Cascades,https://www.amazon.com/Day-Hiking-South-Cascades-2007-05-30/dp/B019L5AP1I
+4,3,North Cascades,null
