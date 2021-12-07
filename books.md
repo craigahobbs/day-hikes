@@ -28,7 +28,7 @@ links.1.text.field: ISBN
 links.1.url.string: https://isbnsearch.org/isbn/{{ISBN}}
 
 categoryFields.0: Book
-categoryFields.1: Author
-fields.0: COUNT(HikeId)
-fields.1: ISBN Link
+fields.0: Author
+fields.1: COUNT(HikeId)
+fields.2: ISBN Link
 ~~~
