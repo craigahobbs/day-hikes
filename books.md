@@ -23,7 +23,7 @@ sorts.0.field: Book Title
 
 links.0.name: Book
 links.0.text.field: Book Title
-links.0.url.string: #url=hikes.md&variables.bookId.number={{BookId}}
+links.0.url.string: #url=hikes.md&variables.BookId.number={{BookId}}
 
 links.1.name: ISBN Link
 links.1.text.field: ISBN
