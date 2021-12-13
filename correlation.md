@@ -15,9 +15,9 @@ data.joins.0.leftFields.0: AuthorId
 data.joins.1.url: hikes.csv
 data.joins.1.leftFields.0: BookId
 
-aggregation.categories.0.field: BookId
-aggregation.categories.1.field: ChapterId
-aggregation.categories.2.field: HikeId
+aggregation.categoryFields.0: BookId
+aggregation.categoryFields.1: ChapterId
+aggregation.categoryFields.2: HikeId
 aggregation.measures.0.field: Rating
 aggregation.measures.0.function: Average
 aggregation.measures.1.field: Distance (mi)
@@ -40,9 +40,9 @@ data.joins.0.leftFields.0: AuthorId
 data.joins.1.url: hikes.csv
 data.joins.1.leftFields.0: BookId
 
-aggregation.categories.0.field: BookId
-aggregation.categories.1.field: ChapterId
-aggregation.categories.2.field: HikeId
+aggregation.categoryFields.0: BookId
+aggregation.categoryFields.1: ChapterId
+aggregation.categoryFields.2: HikeId
 aggregation.measures.0.field: Rating
 aggregation.measures.0.function: Average
 aggregation.measures.1.field: Elevation Gain (ft)
@@ -65,9 +65,9 @@ data.joins.0.leftFields.0: AuthorId
 data.joins.1.url: hikes.csv
 data.joins.1.leftFields.0: BookId
 
-aggregation.categories.0.field: BookId
-aggregation.categories.1.field: ChapterId
-aggregation.categories.2.field: HikeId
+aggregation.categoryFields.0: BookId
+aggregation.categoryFields.1: ChapterId
+aggregation.categoryFields.2: HikeId
 aggregation.measures.0.field: Rating
 aggregation.measures.0.function: Average
 aggregation.measures.1.field: High Point (ft)

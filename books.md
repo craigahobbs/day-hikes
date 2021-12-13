@@ -12,10 +12,10 @@ data.joins.0.leftFields.0: AuthorId
 data.joins.1.url: hikes.csv
 data.joins.1.leftFields.0: BookId
 
-aggregation.categories.0.field: BookId
-aggregation.categories.1.field: Book Title
-aggregation.categories.2.field: Author
-aggregation.categories.3.field: ISBN
+aggregation.categoryFields.0: BookId
+aggregation.categoryFields.1: Book Title
+aggregation.categoryFields.2: Author
+aggregation.categoryFields.3: ISBN
 aggregation.measures.0.field: HikeId
 aggregation.measures.0.function: Count
 

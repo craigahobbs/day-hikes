@@ -26,8 +26,8 @@ filters.4.field: Elevation Gain (ft)
 filters.4.gte.variable: gainMin
 filters.4.lte.variable: gainMax
 
-aggregation.categories.0.field: BookId
-aggregation.categories.1.field: Book Title
+aggregation.categoryFields.0: BookId
+aggregation.categoryFields.1: Book Title
 aggregation.measures.0.field: HikeId
 aggregation.measures.0.function: Count
 
@@ -133,9 +133,9 @@ filters.4.field: Elevation Gain (ft)
 filters.4.gte.variable: gainMin
 filters.4.lte.variable: gainMax
 
-aggregation.categories.0.field: BookId
-aggregation.categories.1.field: ChapterId
-aggregation.categories.2.field: Chapter Title
+aggregation.categoryFields.0: BookId
+aggregation.categoryFields.1: ChapterId
+aggregation.categoryFields.2: Chapter Title
 aggregation.measures.0.field: HikeId
 aggregation.measures.0.function: Count
 
