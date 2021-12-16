@@ -13,6 +13,19 @@ data.joins.1.url: hikes.csv
 data.joins.1.leftFields.0: BookId
 data.joins.1.leftFields.1: ChapterId
 
+calculatedFields.0.name: Book
+calculatedFields.0.expression: '[' & [Book Title] & '](#url=hikes.md&variables.BookId.number=' & [BookId] & ')'
+calculatedFields.1.name: Min. Rating
+calculatedFields.1.expression: if([ratingMin], [ratingMin], '')
+calculatedFields.2.name: Min. Dist.
+calculatedFields.2.expression: if([distMin], [distMin], '')
+calculatedFields.3.name: Max. Dist.
+calculatedFields.3.expression: if([distMax], [distMax], '')
+calculatedFields.4.name: Min. Gain.
+calculatedFields.4.expression: if([gainMin], [gainMin], '')
+calculatedFields.5.name: Max. Gain.
+calculatedFields.5.expression: if([gainMax], [gainMax], '')
+
 filters.0.field: BookId
 filters.0.includes.0.variable: BookId
 filters.1.field: ChapterId
@@ -27,30 +40,16 @@ filters.4.gte.variable: gainMin
 filters.4.lte.variable: gainMax
 
 aggregation.categoryFields.0: BookId
-aggregation.categoryFields.1: Book Title
+aggregation.categoryFields.1: Book
+aggregation.categoryFields.2: Min. Rating
+aggregation.categoryFields.3: Min. Dist.
+aggregation.categoryFields.4: Max. Dist.
+aggregation.categoryFields.5: Min. Gain.
+aggregation.categoryFields.6: Max. Gain.
 aggregation.measures.0.field: HikeId
 aggregation.measures.0.function: Count
 
 sorts.0.field: BookId
-
-links.0.name: Book
-links.0.text.field: Book Title
-links.0.url.string: #url=hikes.md&variables.BookId.number={{BookId}}
-
-links.1.name: Min. Rating
-links.1.text.variable: ratingMin
-
-links.2.name: Min. Dist.
-links.2.text.variable: distMin
-
-links.3.name: Max. Dist.
-links.3.text.variable: distMax
-
-links.4.name: Min. Gain.
-links.4.text.variable: gainMin
-
-links.5.name: Max. Gain.
-links.5.text.variable: gainMax
 
 fields.0: BookId
 fields.1: Book
@@ -60,47 +59,34 @@ fields.4: Min. Dist.
 fields.5: Max. Dist.
 fields.6: Min. Gain.
 fields.7: Max. Gain.
+
+markdownFields.0: Book
 ~~~
 
 ~~~ data-table
 data.url: books.csv
 
+calculatedFields.0.name: Rating (4+)
+calculatedFields.0.expression: '[Excellent](#url=hikes.md&variables.BookId.number=' & [BookId] & '&variables.ChapterId.number=' & [ChapterId] & '&variables.ratingMin.number=4&variables.distMin.number=' & [distMin] & '&variables.distMax.number=' & [distMax] & '&variables.gainMin.number=' & [gainMin] & '&variables.gainMax.number=' & [gainMax] & ')'
+calculatedFields.1.name: Rating (3+)
+calculatedFields.1.expression: '[Good](#url=hikes.md&variables.BookId.number=' & [BookId] & '&variables.ChapterId.number=' & [ChapterId] & '&variables.ratingMin.number=3&variables.distMin.number=' & [distMin] & '&variables.distMax.number=' & [distMax] & '&variables.gainMin.number=' & [gainMin] & '&variables.gainMax.number=' & [gainMax] & ')'
+calculatedFields.2.name: Short Dist.
+calculatedFields.2.expression: '[0 - 5 mi](#url=hikes.md&variables.BookId.number=' & [BookId] & '&variables.ChapterId.number=' & [ChapterId] & '&variables.ratingMin.number=' & [ratingMin] & '&variables.distMax.number=5&variables.gainMin.number=' & [gainMin] & '&variables.gainMax.number=' & [gainMax] & ')'
+calculatedFields.3.name: Med. Dist.
+calculatedFields.3.expression: '[5 - 10 mi](#url=hikes.md&variables.BookId.number=' & [BookId] & '&variables.ChapterId.number=' & [ChapterId] & '&variables.ratingMin.number=' & [ratingMin] & '&variables.distMin.number=5&variables.distMax.number=10&variables.gainMin.number=' & [gainMin] & '&variables.gainMax.number=' & [gainMax] & ')'
+calculatedFields.4.name: Long Dist.
+calculatedFields.4.expression: '[10+ mi](#url=hikes.md&variables.BookId.number=' & [BookId] & '&variables.ChapterId.number=' & [ChapterId] & '&variables.ratingMin.number=' & [ratingMin] & '&variables.distMin.number=10&variables.gainMin.number=' & [gainMin] & '&variables.gainMax.number=' & [gainMax] & ')'
+calculatedFields.5.name: Low Gain
+calculatedFields.5.expression: '[0 - 500 ft](#url=hikes.md&variables.BookId.number=' & [BookId] & '&variables.ChapterId.number=' & [ChapterId] & '&variables.ratingMin.number=' & [ratingMin] & '&variables.gainMax.number=500&variables.distMin.number=' & [distMin] & '&variables.distMax.number=' & [distMax] & ')'
+calculatedFields.6.name: Mod. Gain
+calculatedFields.6.expression: '[500 - 1500 ft](#url=hikes.md&variables.BookId.number=' & [BookId] & '&variables.ChapterId.number=' & [ChapterId] & '&variables.ratingMin.number=' & [ratingMin] & '&variables.gainMin.number=500&variables.gainMax.number=1500&variables.distMin.number=' & [distMin] & '&variables.distMax.number=' & [distMax] & ')'
+calculatedFields.7.name: High Gain
+calculatedFields.7.expression: '[1500+ ft](#url=hikes.md&variables.BookId.number=' & [BookId] & '&variables.ChapterId.number=' & [ChapterId] & '&variables.ratingMin.number=' & [ratingMin] & '&variables.gainMin.number=1500&variables.distMin.number=' & [distMin] & '&variables.distMax.number=' & [distMax] & ')'
+
 filters.0.field: BookId
 filters.0.includes.0.variable: BookId
 
 sorts.0.field: BookId
-
-links.0.name: Rating (4+)
-links.0.text.string: Excellent
-links.0.url.string: #url=hikes.md&variables.BookId.number={{BookId}}&variables.ChapterId.number={{ChapterId}}&variables.ratingMin.number=4&variables.distMin.number={{distMin}}&variables.distMax.number={{distMax}}&variables.gainMin.number={{gainMin}}&variables.gainMax.number={{gainMax}}
-
-links.1.name: Rating (3+)
-links.1.text.string: Good
-links.1.url.string: #url=hikes.md&variables.BookId.number={{BookId}}&variables.ChapterId.number={{ChapterId}}&variables.ratingMin.number=3&variables.distMin.number={{distMin}}&variables.distMax.number={{distMax}}&variables.gainMin.number={{gainMin}}&variables.gainMax.number={{gainMax}}
-
-links.2.name: Short Dist.
-links.2.text.string: 0 - 5 mi
-links.2.url.string: #url=hikes.md&variables.BookId.number={{BookId}}&variables.ChapterId.number={{ChapterId}}&variables.ratingMin.number={{ratingMin}}&variables.distMax.number=5&variables.gainMin.number={{gainMin}}&variables.gainMax.number={{gainMax}}
-
-links.3.name: Med. Dist.
-links.3.text.string: 5 - 10 mi
-links.3.url.string: #url=hikes.md&variables.BookId.number={{BookId}}&variables.ChapterId.number={{ChapterId}}&variables.ratingMin.number={{ratingMin}}&variables.distMin.number=5&variables.distMax.number=10&variables.gainMin.number={{gainMin}}&variables.gainMax.number={{gainMax}}
-
-links.4.name: Long Dist.
-links.4.text.string: 10+ mi
-links.4.url.string: #url=hikes.md&variables.BookId.number={{BookId}}&variables.ChapterId.number={{ChapterId}}&variables.ratingMin.number={{ratingMin}}&variables.distMin.number=10&variables.gainMin.number={{gainMin}}&variables.gainMax.number={{gainMax}}
-
-links.5.name: Low Gain
-links.5.text.string: 0 - 500 ft
-links.5.url.string: #url=hikes.md&variables.BookId.number={{BookId}}&variables.ChapterId.number={{ChapterId}}&variables.ratingMin.number={{ratingMin}}&variables.gainMax.number=500&variables.distMin.number={{distMin}}&variables.distMax.number={{distMax}}
-
-links.6.name: Mod. Gain
-links.6.text.string: 500 - 1500 ft
-links.6.url.string: #url=hikes.md&variables.BookId.number={{BookId}}&variables.ChapterId.number={{ChapterId}}&variables.ratingMin.number={{ratingMin}}&variables.gainMin.number=500&variables.gainMax.number=1500&variables.distMin.number={{distMin}}&variables.distMax.number={{distMax}}
-
-links.7.name: High Gain
-links.7.text.string: 1500+ ft
-links.7.url.string: #url=hikes.md&variables.BookId.number={{BookId}}&variables.ChapterId.number={{ChapterId}}&variables.ratingMin.number={{ratingMin}}&variables.gainMin.number=1500&variables.distMin.number={{distMin}}&variables.distMax.number={{distMax}}
 
 fields.0: Rating (4+)
 fields.1: Rating (3+)
@@ -110,6 +96,15 @@ fields.4: Long Dist.
 fields.5: Low Gain
 fields.6: Mod. Gain
 fields.7: High Gain
+
+markdownFields.0: Rating (4+)
+markdownFields.1: Rating (3+)
+markdownFields.2: Short Dist.
+markdownFields.3: Med. Dist.
+markdownFields.4: Long Dist.
+markdownFields.5: Low Gain
+markdownFields.6: Mod. Gain
+markdownFields.7: High Gain
 ~~~
 
 ~~~ data-table
@@ -119,6 +114,9 @@ data.joins.0.leftFields.0: BookId
 data.joins.1.url: hikes.csv
 data.joins.1.leftFields.0: BookId
 data.joins.1.leftFields.1: ChapterId
+
+calculatedFields.0.name: Chapter
+calculatedFields.0.expression: '[' & [Chapter Title] & '](#url=hikes.md&variables.BookId.number=' & [BookId] & '&variables.ChapterId.number=' & [ChapterId] & '&variables.ratingMin.number=' & [ratingMin] & '&variables.distMin.number=' & [distMin] & '&variables.distMax.number=' & [distMax] & '&variables.gainMin.number=' & [gainMin] & '&variables.gainMax.number=' & [gainMax] & ')'
 
 filters.0.field: BookId
 filters.0.includes.0.variable: BookId
@@ -135,21 +133,19 @@ filters.4.lte.variable: gainMax
 
 aggregation.categoryFields.0: BookId
 aggregation.categoryFields.1: ChapterId
-aggregation.categoryFields.2: Chapter Title
+aggregation.categoryFields.2: Chapter
 aggregation.measures.0.field: HikeId
 aggregation.measures.0.function: Count
 
 sorts.0.field: BookId
 sorts.1.field: ChapterId
 
-links.0.name: Chapter
-links.0.text.field: Chapter Title
-links.0.url.string: #url=hikes.md&variables.BookId.number={{BookId}}&variables.ChapterId.number={{ChapterId}}&variables.ratingMin.number={{ratingMin}}&variables.distMin.number={{distMin}}&variables.distMax.number={{distMax}}&variables.gainMin.number={{gainMin}}&variables.gainMax.number={{gainMax}}
-
 categoryFields.0: BookId
 categoryFields.1: ChapterId
 fields.0: Chapter
 fields.1: COUNT(HikeId)
+
+markdownFields.0: Chapter
 ~~~
 
 ~~~ data-table
