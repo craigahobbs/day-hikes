@@ -13,9 +13,9 @@ data.joins.1.url: hikes.csv
 data.joins.1.leftFields.0: BookId
 
 calculatedFields.0.name: Book
-calculatedFields.0.expression: '[' & [Book Title] & '](#url=hikes.md&variables.BookId.number=' & [BookId] & ')'
+calculatedFields.0.expression: '[' + [Book Title] + '](#url=hikes.md&variables.BookId.number=' + [BookId] + ')'
 calculatedFields.1.name: ISBN Link
-calculatedFields.1.expression: '[' & [ISBN] & '](https://isbnsearch.org/isbn/' & [ISBN] & ')'
+calculatedFields.1.expression: '[' + [ISBN] + '](https://isbnsearch.org/isbn/' + [ISBN] + ')'
 
 aggregation.categoryFields.0: BookId
 aggregation.categoryFields.1: Book

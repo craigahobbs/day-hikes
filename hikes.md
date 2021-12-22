@@ -14,7 +14,7 @@ data.joins.1.leftFields.0: BookId
 data.joins.1.leftFields.1: ChapterId
 
 calculatedFields.0.name: Book
-calculatedFields.0.expression: '[' & [Book Title] & '](#url=hikes.md&variables.BookId.number=' & [BookId] & ')'
+calculatedFields.0.expression: '[' + [Book Title] + '](#url=hikes.md&variables.BookId.number=' + [BookId] + ')'
 calculatedFields.1.name: Min. Rating
 calculatedFields.1.expression: if([ratingMin], [ratingMin], '')
 calculatedFields.2.name: Min. Dist.
@@ -67,21 +67,21 @@ markdownFields.0: Book
 data.url: books.csv
 
 calculatedFields.0.name: Rating (4+)
-calculatedFields.0.expression: '[Excellent](#url=hikes.md&variables.BookId.number=' & [BookId] & '&variables.ChapterId.number=' & [ChapterId] & '&variables.ratingMin.number=4&variables.distMin.number=' & [distMin] & '&variables.distMax.number=' & [distMax] & '&variables.gainMin.number=' & [gainMin] & '&variables.gainMax.number=' & [gainMax] & ')'
+calculatedFields.0.expression: '[Excellent](#url=hikes.md&variables.BookId.number=' + [BookId] + '&variables.ChapterId.number=' + [ChapterId] + '&variables.ratingMin.number=4&variables.distMin.number=' + [distMin] + '&variables.distMax.number=' + [distMax] + '&variables.gainMin.number=' + [gainMin] + '&variables.gainMax.number=' + [gainMax] + ')'
 calculatedFields.1.name: Rating (3+)
-calculatedFields.1.expression: '[Good](#url=hikes.md&variables.BookId.number=' & [BookId] & '&variables.ChapterId.number=' & [ChapterId] & '&variables.ratingMin.number=3&variables.distMin.number=' & [distMin] & '&variables.distMax.number=' & [distMax] & '&variables.gainMin.number=' & [gainMin] & '&variables.gainMax.number=' & [gainMax] & ')'
+calculatedFields.1.expression: '[Good](#url=hikes.md&variables.BookId.number=' + [BookId] + '&variables.ChapterId.number=' + [ChapterId] + '&variables.ratingMin.number=3&variables.distMin.number=' + [distMin] + '&variables.distMax.number=' + [distMax] + '&variables.gainMin.number=' + [gainMin] + '&variables.gainMax.number=' + [gainMax] + ')'
 calculatedFields.2.name: Short Dist.
-calculatedFields.2.expression: '[0 - 5 mi](#url=hikes.md&variables.BookId.number=' & [BookId] & '&variables.ChapterId.number=' & [ChapterId] & '&variables.ratingMin.number=' & [ratingMin] & '&variables.distMax.number=5&variables.gainMin.number=' & [gainMin] & '&variables.gainMax.number=' & [gainMax] & ')'
+calculatedFields.2.expression: '[0 - 5 mi](#url=hikes.md&variables.BookId.number=' + [BookId] + '&variables.ChapterId.number=' + [ChapterId] + '&variables.ratingMin.number=' + [ratingMin] + '&variables.distMax.number=5&variables.gainMin.number=' + [gainMin] + '&variables.gainMax.number=' + [gainMax] + ')'
 calculatedFields.3.name: Med. Dist.
-calculatedFields.3.expression: '[5 - 10 mi](#url=hikes.md&variables.BookId.number=' & [BookId] & '&variables.ChapterId.number=' & [ChapterId] & '&variables.ratingMin.number=' & [ratingMin] & '&variables.distMin.number=5&variables.distMax.number=10&variables.gainMin.number=' & [gainMin] & '&variables.gainMax.number=' & [gainMax] & ')'
+calculatedFields.3.expression: '[5 - 10 mi](#url=hikes.md&variables.BookId.number=' + [BookId] + '&variables.ChapterId.number=' + [ChapterId] + '&variables.ratingMin.number=' + [ratingMin] + '&variables.distMin.number=5&variables.distMax.number=10&variables.gainMin.number=' + [gainMin] + '&variables.gainMax.number=' + [gainMax] + ')'
 calculatedFields.4.name: Long Dist.
-calculatedFields.4.expression: '[10+ mi](#url=hikes.md&variables.BookId.number=' & [BookId] & '&variables.ChapterId.number=' & [ChapterId] & '&variables.ratingMin.number=' & [ratingMin] & '&variables.distMin.number=10&variables.gainMin.number=' & [gainMin] & '&variables.gainMax.number=' & [gainMax] & ')'
+calculatedFields.4.expression: '[10+ mi](#url=hikes.md&variables.BookId.number=' + [BookId] + '&variables.ChapterId.number=' + [ChapterId] + '&variables.ratingMin.number=' + [ratingMin] + '&variables.distMin.number=10&variables.gainMin.number=' + [gainMin] + '&variables.gainMax.number=' + [gainMax] + ')'
 calculatedFields.5.name: Low Gain
-calculatedFields.5.expression: '[0 - 500 ft](#url=hikes.md&variables.BookId.number=' & [BookId] & '&variables.ChapterId.number=' & [ChapterId] & '&variables.ratingMin.number=' & [ratingMin] & '&variables.gainMax.number=500&variables.distMin.number=' & [distMin] & '&variables.distMax.number=' & [distMax] & ')'
+calculatedFields.5.expression: '[0 - 500 ft](#url=hikes.md&variables.BookId.number=' + [BookId] + '&variables.ChapterId.number=' + [ChapterId] + '&variables.ratingMin.number=' + [ratingMin] + '&variables.gainMax.number=500&variables.distMin.number=' + [distMin] + '&variables.distMax.number=' + [distMax] + ')'
 calculatedFields.6.name: Mod. Gain
-calculatedFields.6.expression: '[500 - 1500 ft](#url=hikes.md&variables.BookId.number=' & [BookId] & '&variables.ChapterId.number=' & [ChapterId] & '&variables.ratingMin.number=' & [ratingMin] & '&variables.gainMin.number=500&variables.gainMax.number=1500&variables.distMin.number=' & [distMin] & '&variables.distMax.number=' & [distMax] & ')'
+calculatedFields.6.expression: '[500 - 1500 ft](#url=hikes.md&variables.BookId.number=' + [BookId] + '&variables.ChapterId.number=' + [ChapterId] + '&variables.ratingMin.number=' + [ratingMin] + '&variables.gainMin.number=500&variables.gainMax.number=1500&variables.distMin.number=' + [distMin] + '&variables.distMax.number=' + [distMax] + ')'
 calculatedFields.7.name: High Gain
-calculatedFields.7.expression: '[1500+ ft](#url=hikes.md&variables.BookId.number=' & [BookId] & '&variables.ChapterId.number=' & [ChapterId] & '&variables.ratingMin.number=' & [ratingMin] & '&variables.gainMin.number=1500&variables.distMin.number=' & [distMin] & '&variables.distMax.number=' & [distMax] & ')'
+calculatedFields.7.expression: '[1500+ ft](#url=hikes.md&variables.BookId.number=' + [BookId] + '&variables.ChapterId.number=' + [ChapterId] + '&variables.ratingMin.number=' + [ratingMin] + '&variables.gainMin.number=1500&variables.distMin.number=' + [distMin] + '&variables.distMax.number=' + [distMax] + ')'
 
 filters.0.field: BookId
 filters.0.includes.0.variable: BookId
@@ -116,7 +116,7 @@ data.joins.1.leftFields.0: BookId
 data.joins.1.leftFields.1: ChapterId
 
 calculatedFields.0.name: Chapter
-calculatedFields.0.expression: '[' & [Chapter Title] & '](#url=hikes.md&variables.BookId.number=' & [BookId] & '&variables.ChapterId.number=' & [ChapterId] & '&variables.ratingMin.number=' & [ratingMin] & '&variables.distMin.number=' & [distMin] & '&variables.distMax.number=' & [distMax] & '&variables.gainMin.number=' & [gainMin] & '&variables.gainMax.number=' & [gainMax] & ')'
+calculatedFields.0.expression: '[' + [Chapter Title] + '](#url=hikes.md&variables.BookId.number=' + [BookId] + '&variables.ChapterId.number=' + [ChapterId] + '&variables.ratingMin.number=' + [ratingMin] + '&variables.distMin.number=' + [distMin] + '&variables.distMax.number=' + [distMax] + '&variables.gainMin.number=' + [gainMin] + '&variables.gainMax.number=' + [gainMax] + ')'
 
 filters.0.field: BookId
 filters.0.includes.0.variable: BookId
