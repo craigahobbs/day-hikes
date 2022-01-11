@@ -14,7 +14,7 @@ data.joins.1.leftFields.0: BookId
 data.joins.1.leftFields.1: ChapterId
 
 calculatedFields.0.name: Book
-calculatedFields.0.expression: '[' + markdownEncode([Book Title]) + '](' + hashURL('#url=hikes.md&var.vBookId=' + [BookId]) + ')'
+calculatedFields.0.expression: '[' + markdownEncode([Book Title]) + '](#url=hikes.md&var.vBookId=' + [BookId] + ')'
 calculatedFields.1.name: Min. Rating
 calculatedFields.1.expression: if(vRatingMin, vRatingMin, '')
 calculatedFields.2.name: Min. Dist.
@@ -60,21 +60,21 @@ markdownFields.0: Book
 data.url: books.csv
 
 calculatedFields.0.name: Rating (4+)
-calculatedFields.0.expression: '[Excellent](' + hashURL('#url=hikes.md&var.vBookId=' + [BookId] + if(vChapterId, '&var.vChapterId=' + vChapterId, '') + '&var.vRatingMin=4' + if(vDistMin, '&var.vDistMin=' + vDistMin, '') + if(vDistMax, '&var.vDistMax=' + vDistMax, '') + if(vGainMin, '&var.vGainMin=' + vGainMin, '') + if(vGainMax, '&var.vGainMax=' + vGainMax, '')) + ')'
+calculatedFields.0.expression: '[Excellent](#url=hikes.md&var.vBookId=' + [BookId] + if(vChapterId, '&var.vChapterId=' + vChapterId, '') + '&var.vRatingMin=4' + if(vDistMin, '&var.vDistMin=' + vDistMin, '') + if(vDistMax, '&var.vDistMax=' + vDistMax, '') + if(vGainMin, '&var.vGainMin=' + vGainMin, '') + if(vGainMax, '&var.vGainMax=' + vGainMax, '') + ')'
 calculatedFields.1.name: Rating (3+)
-calculatedFields.1.expression: '[Good](' + hashURL('#url=hikes.md&var.vBookId=' + [BookId] + if(vChapterId, '&var.vChapterId=' + vChapterId, '') + '&var.vRatingMin=3' + if(vDistMin, '&var.vDistMin=' + vDistMin, '') + if(vDistMax, '&var.vDistMax=' + vDistMax, '') + if(vGainMin, '&var.vGainMin=' + vGainMin, '') + if(vGainMax, '&var.vGainMax=' + vGainMax, '')) + ')'
+calculatedFields.1.expression: '[Good](#url=hikes.md&var.vBookId=' + [BookId] + if(vChapterId, '&var.vChapterId=' + vChapterId, '') + '&var.vRatingMin=3' + if(vDistMin, '&var.vDistMin=' + vDistMin, '') + if(vDistMax, '&var.vDistMax=' + vDistMax, '') + if(vGainMin, '&var.vGainMin=' + vGainMin, '') + if(vGainMax, '&var.vGainMax=' + vGainMax, '') + ')'
 calculatedFields.2.name: Short Dist.
-calculatedFields.2.expression: '[0 - 5 mi](' + hashURL('#url=hikes.md&var.vBookId=' + [BookId] + if(vChapterId, '&var.vChapterId=' + vChapterId, '') + if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + '&var.vDistMin=0&var.vDistMax=5' + if(vGainMin, '&var.vGainMin=' + vGainMin, '') + if(vGainMax, '&var.vGainMax=' + vGainMax, '')) + ')'
+calculatedFields.2.expression: '[0 - 5 mi](#url=hikes.md&var.vBookId=' + [BookId] + if(vChapterId, '&var.vChapterId=' + vChapterId, '') + if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + '&var.vDistMin=0&var.vDistMax=5' + if(vGainMin, '&var.vGainMin=' + vGainMin, '') + if(vGainMax, '&var.vGainMax=' + vGainMax, '') + ')'
 calculatedFields.3.name: Med. Dist.
-calculatedFields.3.expression: '[5 - 10 mi](' + hashURL('#url=hikes.md&var.vBookId=' + [BookId] + if(vChapterId, '&var.vChapterId=' + vChapterId, '') + if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + '&var.vDistMin=5&var.vDistMax=10' + if(vGainMin, '&var.vGainMin=' + vGainMin, '') + if(vGainMax, '&var.vGainMax=' + vGainMax, '')) + ')'
+calculatedFields.3.expression: '[5 - 10 mi](#url=hikes.md&var.vBookId=' + [BookId] + if(vChapterId, '&var.vChapterId=' + vChapterId, '') + if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + '&var.vDistMin=5&var.vDistMax=10' + if(vGainMin, '&var.vGainMin=' + vGainMin, '') + if(vGainMax, '&var.vGainMax=' + vGainMax, '') + ')'
 calculatedFields.4.name: Long Dist.
-calculatedFields.4.expression: '[10+ mi](' + hashURL('#url=hikes.md&var.vBookId=' + [BookId] + if(vChapterId, '&var.vChapterId=' + vChapterId, '') + if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + '&var.vDistMin=10&var.vDistMax=1000' + if(vGainMin, '&var.vGainMin=' + vGainMin, '') + if(vGainMax, '&var.vGainMax=' + vGainMax, '')) + ')'
+calculatedFields.4.expression: '[10+ mi](#url=hikes.md&var.vBookId=' + [BookId] + if(vChapterId, '&var.vChapterId=' + vChapterId, '') + if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + '&var.vDistMin=10&var.vDistMax=1000' + if(vGainMin, '&var.vGainMin=' + vGainMin, '') + if(vGainMax, '&var.vGainMax=' + vGainMax, '') + ')'
 calculatedFields.5.name: Low Gain
-calculatedFields.5.expression: '[0 - 500 ft](' + hashURL('#url=hikes.md&var.vBookId=' + [BookId] + if(vChapterId, '&var.vChapterId=' + vChapterId, '') + if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + if(vDistMin, '&var.vDistMin=' + vDistMin, '') + if(vDistMax, '&var.vDistMax=' + vDistMax, '') + '&var.vGainMin=0&var.vGainMax=500') + ')'
+calculatedFields.5.expression: '[0 - 500 ft](#url=hikes.md&var.vBookId=' + [BookId] + if(vChapterId, '&var.vChapterId=' + vChapterId, '') + if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + if(vDistMin, '&var.vDistMin=' + vDistMin, '') + if(vDistMax, '&var.vDistMax=' + vDistMax, '') + '&var.vGainMin=0&var.vGainMax=500)'
 calculatedFields.6.name: Mod. Gain
-calculatedFields.6.expression: '[500 - 1500 ft](' + hashURL('#url=hikes.md&var.vBookId=' + [BookId] + if(vChapterId, '&var.vChapterId=' + vChapterId, '') + if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + if(vDistMin, '&var.vDistMin=' + vDistMin, '') + if(vDistMax, '&var.vDistMax=' + vDistMax, '') + '&var.vGainMin=500&var.vGainMax=1500') + ')'
+calculatedFields.6.expression: '[500 - 1500 ft](#url=hikes.md&var.vBookId=' + [BookId] + if(vChapterId, '&var.vChapterId=' + vChapterId, '') + if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + if(vDistMin, '&var.vDistMin=' + vDistMin, '') + if(vDistMax, '&var.vDistMax=' + vDistMax, '') + '&var.vGainMin=500&var.vGainMax=1500)'
 calculatedFields.7.name: High Gain
-calculatedFields.7.expression: '[1500+ ft](' + hashURL('#url=hikes.md&var.vBookId=' + [BookId] + if(vChapterId, '&var.vChapterId=' + vChapterId, '') + if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + if(vDistMin, '&var.vDistMin=' + vDistMin, '') + if(vDistMax, '&var.vDistMax=' + vDistMax, '') + '&var.vGainMin=1500&var.vGainMax=10000') + ')'
+calculatedFields.7.expression: '[1500+ ft](#url=hikes.md&var.vBookId=' + [BookId] + if(vChapterId, '&var.vChapterId=' + vChapterId, '') + if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + if(vDistMin, '&var.vDistMin=' + vDistMin, '') + if(vDistMax, '&var.vDistMax=' + vDistMax, '') + '&var.vGainMin=1500&var.vGainMax=10000)'
 
 filters.0: if(vBookId, BookId == vBookId, 1)
 
@@ -108,7 +108,7 @@ data.joins.1.leftFields.0: BookId
 data.joins.1.leftFields.1: ChapterId
 
 calculatedFields.0.name: Chapter
-calculatedFields.0.expression: '[' + markdownEncode([Chapter Title]) + '](' + hashURL('#url=hikes.md&var.vBookId=' + [BookId] + '&var.vChapterId=' + [ChapterId] + if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + if(vDistMin, '&var.vDistMin=' + vDistMin, '') + if(vDistMax, '&var.vDistMax=' + vDistMax, '') + if(vGainMin, '&var.vGainMin=' + vGainMin, '') + if(vGainMax, '&var.vGainMax=' + vGainMax, '')) + ')'
+calculatedFields.0.expression: '[' + markdownEncode([Chapter Title]) + '](#url=hikes.md&var.vBookId=' + [BookId] + '&var.vChapterId=' + [ChapterId] + if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + if(vDistMin, '&var.vDistMin=' + vDistMin, '') + if(vDistMax, '&var.vDistMax=' + vDistMax, '') + if(vGainMin, '&var.vGainMin=' + vGainMin, '') + if(vGainMax, '&var.vGainMax=' + vGainMax, '') + ')'
 
 filters.0: if(vBookId, BookId == vBookId, 1)
 filters.1: if(vChapterId, ChapterId == vChapterId, 1)
