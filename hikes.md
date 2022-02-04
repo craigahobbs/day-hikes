@@ -8,10 +8,9 @@
 ~~~ data-table
 data.url: books.csv
 data.joins.0.url: chapters.csv
-data.joins.0.leftFields.0: BookId
+data.joins.0.leftExpression: [BookId]
 data.joins.1.url: hikes.csv
-data.joins.1.leftFields.0: BookId
-data.joins.1.leftFields.1: ChapterId
+data.joins.1.leftExpression: [BookId] + '-' + [ChapterId]
 
 calculatedFields.0.name: Book
 calculatedFields.0.expression: '[' + markdownEncode([Book Title]) + '](#url=hikes.md&var.vBookId=' + [BookId] + ')'
@@ -102,10 +101,9 @@ markdownFields.7: High Gain
 ~~~ data-table
 data.url: books.csv
 data.joins.0.url: chapters.csv
-data.joins.0.leftFields.0: BookId
+data.joins.0.leftExpression: [BookId]
 data.joins.1.url: hikes.csv
-data.joins.1.leftFields.0: BookId
-data.joins.1.leftFields.1: ChapterId
+data.joins.1.leftExpression: [BookId] + '-' + [ChapterId]
 
 calculatedFields.0.name: Chapter
 calculatedFields.0.expression: '[' + markdownEncode([Chapter Title]) + '](#url=hikes.md&var.vBookId=' + [BookId] + '&var.vChapterId=' + [ChapterId] + if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + if(vDistMin, '&var.vDistMin=' + vDistMin, '') + if(vDistMax, '&var.vDistMax=' + vDistMax, '') + if(vGainMin, '&var.vGainMin=' + vGainMin, '') + if(vGainMax, '&var.vGainMax=' + vGainMax, '') + ')'
@@ -136,10 +134,9 @@ markdownFields.0: Chapter
 ~~~ data-table
 data.url: books.csv
 data.joins.0.url: chapters.csv
-data.joins.0.leftFields.0: BookId
+data.joins.0.leftExpression: [BookId]
 data.joins.1.url: hikes.csv
-data.joins.1.leftFields.0: BookId
-data.joins.1.leftFields.1: ChapterId
+data.joins.1.leftExpression: [BookId] + '-' + [ChapterId]
 
 filters.0: if(vBookId, BookId == vBookId, 1)
 filters.1: if(vChapterId, ChapterId == vChapterId, 1)

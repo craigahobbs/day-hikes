@@ -11,9 +11,9 @@ Correlation
 ~~~ line-chart
 data.url: books.csv
 data.joins.0.url: authors.csv
-data.joins.0.leftFields.0: AuthorId
+data.joins.0.leftExpression: [AuthorId]
 data.joins.1.url: hikes.csv
-data.joins.1.leftFields.0: BookId
+data.joins.1.leftExpression: [BookId]
 
 aggregation.categoryFields.0: BookId
 aggregation.categoryFields.1: ChapterId
@@ -36,9 +36,9 @@ colorFields.2: HikeId
 ~~~ line-chart
 data.url: books.csv
 data.joins.0.url: authors.csv
-data.joins.0.leftFields.0: AuthorId
+data.joins.0.leftExpression: [AuthorId]
 data.joins.1.url: hikes.csv
-data.joins.1.leftFields.0: BookId
+data.joins.1.leftExpression: [BookId]
 
 aggregation.categoryFields.0: BookId
 aggregation.categoryFields.1: ChapterId
@@ -61,9 +61,9 @@ colorFields.2: HikeId
 ~~~ line-chart
 data.url: books.csv
 data.joins.0.url: authors.csv
-data.joins.0.leftFields.0: AuthorId
+data.joins.0.leftExpression: [AuthorId]
 data.joins.1.url: hikes.csv
-data.joins.1.leftFields.0: BookId
+data.joins.1.leftExpression: [BookId]
 
 aggregation.categoryFields.0: BookId
 aggregation.categoryFields.1: ChapterId

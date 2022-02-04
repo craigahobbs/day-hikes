@@ -8,9 +8,9 @@ Books |
 ~~~ data-table
 data.url: books.csv
 data.joins.0.url: authors.csv
-data.joins.0.leftFields.0: AuthorId
+data.joins.0.leftExpression: [AuthorId]
 data.joins.1.url: hikes.csv
-data.joins.1.leftFields.0: BookId
+data.joins.1.leftExpression: [BookId]
 
 calculatedFields.0.name: Book
 calculatedFields.0.expression: '[' + [Book Title] + '](#url=hikes.md&var.vBookId=' + [BookId] + ')'
