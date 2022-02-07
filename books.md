@@ -21,6 +21,7 @@ aggregation.categoryFields.0: BookId
 aggregation.categoryFields.1: Book
 aggregation.categoryFields.2: Author
 aggregation.categoryFields.3: ISBN Link
+aggregation.measures.0.name: Hikes
 aggregation.measures.0.field: HikeId
 aggregation.measures.0.function: Count
 
@@ -28,7 +29,7 @@ sorts.0.field: Book
 
 categoryFields.0: Book
 fields.0: Author
-fields.1: COUNT(HikeId)
+fields.1: Hikes
 fields.2: ISBN Link
 
 markdownFields.0: Book

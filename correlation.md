@@ -23,11 +23,12 @@ aggregation.measures.0.function: Average
 aggregation.measures.1.field: Distance (mi)
 aggregation.measures.1.function: Average
 
-xField: AVERAGE(Distance (mi))
-yFields.0: AVERAGE(Rating)
-colorFields.0: BookId
-colorFields.1: ChapterId
-colorFields.2: HikeId
+postCalculatedFields.0.name: ColorField
+postCalculatedFields.0.expression: BookId + ', ' + ChapterId + ', ' + HikeId
+
+xField: Distance (mi)
+yFields.0: Rating
+colorField: ColorField
 ~~~
 
 
@@ -48,11 +49,12 @@ aggregation.measures.0.function: Average
 aggregation.measures.1.field: Elevation Gain (ft)
 aggregation.measures.1.function: Average
 
-xField: AVERAGE(Elevation Gain (ft))
-yFields.0: AVERAGE(Rating)
-colorFields.0: BookId
-colorFields.1: ChapterId
-colorFields.2: HikeId
+postCalculatedFields.0.name: ColorField
+postCalculatedFields.0.expression: BookId + ', ' + ChapterId + ', ' + HikeId
+
+xField: Elevation Gain (ft)
+yFields.0: Rating
+colorField: ColorField
 ~~~
 
 
@@ -73,9 +75,10 @@ aggregation.measures.0.function: Average
 aggregation.measures.1.field: High Point (ft)
 aggregation.measures.1.function: Average
 
-xField: AVERAGE(High Point (ft))
-yFields.0: AVERAGE(Rating)
-colorFields.0: BookId
-colorFields.1: ChapterId
-colorFields.2: HikeId
+postCalculatedFields.0.name: ColorField
+postCalculatedFields.0.expression: BookId + ', ' + ChapterId + ', ' + HikeId
+
+xField: High Point (ft)
+yFields.0: Rating
+colorField: ColorField
 ~~~

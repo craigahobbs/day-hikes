@@ -25,11 +25,7 @@ calculatedFields.4.expression: if(vGainMin, vGainMin, '')
 calculatedFields.5.name: Max. Gain.
 calculatedFields.5.expression: if(vGainMax, vGainMax, '')
 
-filters.0: if(vBookId, BookId == vBookId, 1)
-filters.1: if(vChapterId, ChapterId == vChapterId, 1)
-filters.2: if(vRatingMin, Rating >= vRatingMin, 1)
-filters.3: if(vDistMin, [Distance (mi)] >= vDistMin, 1) && if(vDistMax, [Distance (mi)] <= vDistMax, 1)
-filters.4: if(vGainMin, [Elevation Gain (ft)] >= vGainMin, 1) && if(vGainMax, [Elevation Gain (ft)] <= vGainMax, 1)
+filter: (vBookId == null || BookId == vBookId) && (vChapterId == null || ChapterId == vChapterId) && (vRatingMin == null || Rating >= vRatingMin) && (vDistMin == null && [Distance (mi)] >= vDistMin) && (vDistMax == null || [Distance (mi)] <= vDistMax) && (vGainMin == null || [Elevation Gain (ft)] >= vGainMin) && (vGainMax == null || [Elevation Gain (ft)] <= vGainMax)
 
 aggregation.categoryFields.0: BookId
 aggregation.categoryFields.1: Book
@@ -38,6 +34,7 @@ aggregation.categoryFields.3: Min. Dist.
 aggregation.categoryFields.4: Max. Dist.
 aggregation.categoryFields.5: Min. Gain.
 aggregation.categoryFields.6: Max. Gain.
+aggregation.measures.0.name: Hikes
 aggregation.measures.0.field: HikeId
 aggregation.measures.0.function: Count
 
@@ -45,7 +42,7 @@ sorts.0.field: BookId
 
 fields.0: BookId
 fields.1: Book
-fields.2: COUNT(HikeId)
+fields.2: Hikes
 fields.3: Min. Rating
 fields.4: Min. Dist.
 fields.5: Max. Dist.
@@ -75,7 +72,7 @@ calculatedFields.6.expression: '[500 - 1500 ft](#url=hikes.md&var.vBookId=' +
 calculatedFields.7.name: High Gain
 calculatedFields.7.expression: '[1500+ ft](#url=hikes.md&var.vBookId=' + [BookId] + if(vChapterId, '&var.vChapterId=' + vChapterId, '') + if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + if(vDistMin, '&var.vDistMin=' + vDistMin, '') + if(vDistMax, '&var.vDistMax=' + vDistMax, '') + '&var.vGainMin=1500&var.vGainMax=10000)'
 
-filters.0: if(vBookId, BookId == vBookId, 1)
+filter: vBookId == null || BookId == vBookId
 
 sorts.0.field: BookId
 
@@ -106,17 +103,14 @@ data.joins.1.url: hikes.csv
 data.joins.1.leftExpression: [BookId] + '-' + [ChapterId]
 
 calculatedFields.0.name: Chapter
-calculatedFields.0.expression: '[' + markdownEncode([Chapter Title]) + '](#url=hikes.md&var.vBookId=' + [BookId] + '&var.vChapterId=' + [ChapterId] + if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + if(vDistMin, '&var.vDistMin=' + vDistMin, '') + if(vDistMax, '&var.vDistMax=' + vDistMax, '') + if(vGainMin, '&var.vGainMin=' + vGainMin, '') + if(vGainMax, '&var.vGainMax=' + vGainMax, '') + ')'
+calculatedFields.0.expression: '[' + markdownEncode([Chapter Title]) + '](#url=hikes.md&var.vBookId=' + [BookId] + '&var.vChapterId=' + [ChapterId] + if(vRatingMin != null, '&var.vRatingMin=' + vRatingMin, '') + if(vDistMin != null, '&var.vDistMin=' + vDistMin, '') + if(vDistMax != null, '&var.vDistMax=' + vDistMax, '') + if(vGainMin != null, '&var.vGainMin=' + vGainMin, '') + if(vGainMax != null, '&var.vGainMax=' + vGainMax, '') + ')'
 
-filters.0: if(vBookId, BookId == vBookId, 1)
-filters.1: if(vChapterId, ChapterId == vChapterId, 1)
-filters.2: if(vRatingMin, Rating >= vRatingMin, 1)
-filters.3: if(vDistMin, [Distance (mi)] >= vDistMin, 1) && if(vDistMax, [Distance (mi)] <= vDistMax, 1)
-filters.4: if(vGainMin, [Elevation Gain (ft)] >= vGainMin, 1) && if(vGainMax, [Elevation Gain (ft)] <= vGainMax, 1)
+filter: (vBookId == null || BookId == vBookId) && (vChapterId == null || ChapterId == vChapterId) && (vRatingMin == null || Rating >= vRatingMin) && (vDistMin == null || [Distance (mi)] >= vDistMin) && (vDistMax == null || [Distance (mi)] <= vDistMax) && (vGainMin == null || [Elevation Gain (ft)] >= vGainMin) && (vGainMax == null || [Elevation Gain (ft)] <= vGainMax)
 
 aggregation.categoryFields.0: BookId
 aggregation.categoryFields.1: ChapterId
 aggregation.categoryFields.2: Chapter
+aggregation.measures.0.name: Hikes
 aggregation.measures.0.field: HikeId
 aggregation.measures.0.function: Count
 
@@ -126,7 +120,7 @@ sorts.1.field: ChapterId
 categoryFields.0: BookId
 categoryFields.1: ChapterId
 fields.0: Chapter
-fields.1: COUNT(HikeId)
+fields.1: Hikes
 
 markdownFields.0: Chapter
 ~~~
@@ -138,11 +132,7 @@ data.joins.0.leftExpression: [BookId]
 data.joins.1.url: hikes.csv
 data.joins.1.leftExpression: [BookId] + '-' + [ChapterId]
 
-filters.0: if(vBookId, BookId == vBookId, 1)
-filters.1: if(vChapterId, ChapterId == vChapterId, 1)
-filters.2: if(vRatingMin, Rating >= vRatingMin, 1)
-filters.3: if(vDistMin, [Distance (mi)] >= vDistMin, 1) && if(vDistMax, [Distance (mi)] <= vDistMax, 1)
-filters.4: if(vGainMin, [Elevation Gain (ft)] >= vGainMin, 1) && if(vGainMax, [Elevation Gain (ft)] <= vGainMax, 1)
+filter: (vBookId == null || BookId == vBookId) && (vChapterId == null || ChapterId == vChapterId) && (vRatingMin == null || Rating >= vRatingMin) && (vDistMin == null || [Distance (mi)] >= vDistMin) && (vDistMax == null || [Distance (mi)] <= vDistMax) && (vGainMin == null || [Elevation Gain (ft)] >= vGainMin) && (vGainMax == null || [Elevation Gain (ft)] <= vGainMax)
 
 sorts.0.field: Rating
 sorts.0.desc: true
