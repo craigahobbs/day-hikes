@@ -5,148 +5,206 @@
 
 # Hikes
 
-~~~ data-table
-data.url: books.csv
-data.joins.0.url: chapters.csv
-data.joins.0.leftExpression: [BookId]
-data.joins.1.url: hikes.csv
-data.joins.1.leftExpression: [BookId] + '-' + [ChapterId]
-
-calculatedFields.0.name: Book
-calculatedFields.0.expression: '[' + markdownEncode([Book Title]) + '](#url=hikes.md&var.vBookId=' + [BookId] + ')'
-calculatedFields.1.name: Min. Rating
-calculatedFields.1.expression: if(vRatingMin, vRatingMin, '')
-calculatedFields.2.name: Min. Dist.
-calculatedFields.2.expression: if(vDistMin, vDistMin, '')
-calculatedFields.3.name: Max. Dist.
-calculatedFields.3.expression: if(vDistMax, vDistMax, '')
-calculatedFields.4.name: Min. Gain.
-calculatedFields.4.expression: if(vGainMin, vGainMin, '')
-calculatedFields.5.name: Max. Gain.
-calculatedFields.5.expression: if(vGainMax, vGainMax, '')
-
-filter: (vBookId == null || BookId == vBookId) && (vChapterId == null || ChapterId == vChapterId) && (vRatingMin == null || Rating >= vRatingMin) && (vDistMin == null && [Distance (mi)] >= vDistMin) && (vDistMax == null || [Distance (mi)] <= vDistMax) && (vGainMin == null || [Elevation Gain (ft)] >= vGainMin) && (vGainMax == null || [Elevation Gain (ft)] <= vGainMax)
-
-aggregation.categoryFields.0: BookId
-aggregation.categoryFields.1: Book
-aggregation.categoryFields.2: Min. Rating
-aggregation.categoryFields.3: Min. Dist.
-aggregation.categoryFields.4: Max. Dist.
-aggregation.categoryFields.5: Min. Gain.
-aggregation.categoryFields.6: Max. Gain.
-aggregation.measures.0.name: Hikes
-aggregation.measures.0.field: HikeId
-aggregation.measures.0.function: Count
-
-sorts.0.field: BookId
-
-fields.0: BookId
-fields.1: Book
-fields.2: Hikes
-fields.3: Min. Rating
-fields.4: Min. Dist.
-fields.5: Max. Dist.
-fields.6: Min. Gain.
-fields.7: Max. Gain.
-
-markdownFields.0: Book
+~~~ markdown-script
+// Hike filter links
+markdownPrint( \
+    '**Rating:** ', \
+    '[Excellent](#url=hikes.md' + \
+        if(vBookId, '&var.vBookId=' + vBookId) + \
+        if(vChapterId, '&var.vChapterId=' + vChapterId, '') + \
+        '&var.vRatingMin=4' + \
+        if(vDistMin, '&var.vDistMin=' + vDistMin, '') + \
+        if(vDistMax, '&var.vDistMax=' + vDistMax, '') + \
+        if(vGainMin, '&var.vGainMin=' + vGainMin, '') + \
+        if(vGainMax, '&var.vGainMax=' + vGainMax, '') + ')', \
+    '|', \
+    '[Good](#url=hikes.md' + \
+        if(vBookId, '&var.vBookId=' + vBookId) + \
+        if(vChapterId, '&var.vChapterId=' + vChapterId, '') + \
+        '&var.vRatingMin=3' + \
+        if(vDistMin, '&var.vDistMin=' + vDistMin, '') + \
+        if(vDistMax, '&var.vDistMax=' + vDistMax, '') + \
+        if(vGainMin, '&var.vGainMin=' + vGainMin, '') + \
+        if(vGainMax, '&var.vGainMax=' + vGainMax, '') + ')  ', \
+    '**Distance:** ', \
+    '[Short](#url=hikes.md' + \
+        if(vBookId, '&var.vBookId=' + vBookId) + \
+        if(vChapterId, '&var.vChapterId=' + vChapterId, '') + \
+        if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + \
+        '&var.vDistMax=5' + \
+        if(vGainMin, '&var.vGainMin=' + vGainMin, '') + \
+        if(vGainMax, '&var.vGainMax=' + vGainMax, '') + ')', \
+    '|', \
+    '[Medium](#url=hikes.md' + \
+        if(vBookId, '&var.vBookId=' + vBookId) + \
+        if(vChapterId, '&var.vChapterId=' + vChapterId, '') + \
+        if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + \
+        '&var.vDistMin=5&var.vDistMax=10' + \
+        if(vGainMin, '&var.vGainMin=' + vGainMin, '') + \
+        if(vGainMax, '&var.vGainMax=' + vGainMax, '') + ')', \
+    '|', \
+    '[Long](#url=hikes.md' + \
+        if(vBookId, '&var.vBookId=' + vBookId) + \
+        if(vChapterId, '&var.vChapterId=' + vChapterId, '') + \
+        if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + \
+        '&var.vDistMin=10' + \
+        if(vGainMin, '&var.vGainMin=' + vGainMin, '') + \
+        if(vGainMax, '&var.vGainMax=' + vGainMax, '') + ')  ', \
+    '**Gain:** ', \
+    '[Low](#url=hikes.md' + \
+        if(vBookId, '&var.vBookId=' + vBookId) + \
+        if(vChapterId, '&var.vChapterId=' + vChapterId, '') + \
+        if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + \
+        if(vDistMin, '&var.vDistMin=' + vDistMin, '') + \
+        if(vDistMax, '&var.vDistMax=' + vDistMax, '') + \
+       '&var.vGainMax=500)', \
+    '|', \
+    '[Moderate](#url=hikes.md' + \
+        if(vBookId, '&var.vBookId=' + vBookId) + \
+        if(vChapterId, '&var.vChapterId=' + vChapterId, '') + \
+        if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + \
+        if(vDistMin, '&var.vDistMin=' + vDistMin, '') + \
+        if(vDistMax, '&var.vDistMax=' + vDistMax, '') + \
+       '&var.vGainMin=500&var.vGainMax=1500)', \
+    '|', \
+    '[High](#url=hikes.md' + \
+        if(vBookId, '&var.vBookId=' + vBookId) + \
+        if(vChapterId, '&var.vChapterId=' + vChapterId, '') + \
+        if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + \
+        if(vDistMin, '&var.vDistMin=' + vDistMin, '') + \
+        if(vDistMax, '&var.vDistMax=' + vDistMax, '') + \
+       '&var.vGainMin=1500)' \
+)
 ~~~
 
 ~~~ data-table
+// Hike filter argument report
+
 data.url: books.csv
+data.join.0.url: chapters.csv
+data.join.0.left: [BookId]
+data.join.1.url: hikes.csv
+data.join.1.left: [BookId] + '-' + [ChapterId]
 
-calculatedFields.0.name: Rating (4+)
-calculatedFields.0.expression: '[Excellent](#url=hikes.md&var.vBookId=' + [BookId] + if(vChapterId, '&var.vChapterId=' + vChapterId, '') + '&var.vRatingMin=4' + if(vDistMin, '&var.vDistMin=' + vDistMin, '') + if(vDistMax, '&var.vDistMax=' + vDistMax, '') + if(vGainMin, '&var.vGainMin=' + vGainMin, '') + if(vGainMax, '&var.vGainMax=' + vGainMax, '') + ')'
-calculatedFields.1.name: Rating (3+)
-calculatedFields.1.expression: '[Good](#url=hikes.md&var.vBookId=' + [BookId] + if(vChapterId, '&var.vChapterId=' + vChapterId, '') + '&var.vRatingMin=3' + if(vDistMin, '&var.vDistMin=' + vDistMin, '') + if(vDistMax, '&var.vDistMax=' + vDistMax, '') + if(vGainMin, '&var.vGainMin=' + vGainMin, '') + if(vGainMax, '&var.vGainMax=' + vGainMax, '') + ')'
-calculatedFields.2.name: Short Dist.
-calculatedFields.2.expression: '[0 - 5 mi](#url=hikes.md&var.vBookId=' + [BookId] + if(vChapterId, '&var.vChapterId=' + vChapterId, '') + if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + '&var.vDistMin=0&var.vDistMax=5' + if(vGainMin, '&var.vGainMin=' + vGainMin, '') + if(vGainMax, '&var.vGainMax=' + vGainMax, '') + ')'
-calculatedFields.3.name: Med. Dist.
-calculatedFields.3.expression: '[5 - 10 mi](#url=hikes.md&var.vBookId=' + [BookId] + if(vChapterId, '&var.vChapterId=' + vChapterId, '') + if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + '&var.vDistMin=5&var.vDistMax=10' + if(vGainMin, '&var.vGainMin=' + vGainMin, '') + if(vGainMax, '&var.vGainMax=' + vGainMax, '') + ')'
-calculatedFields.4.name: Long Dist.
-calculatedFields.4.expression: '[10+ mi](#url=hikes.md&var.vBookId=' + [BookId] + if(vChapterId, '&var.vChapterId=' + vChapterId, '') + if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + '&var.vDistMin=10&var.vDistMax=1000' + if(vGainMin, '&var.vGainMin=' + vGainMin, '') + if(vGainMax, '&var.vGainMax=' + vGainMax, '') + ')'
-calculatedFields.5.name: Low Gain
-calculatedFields.5.expression: '[0 - 500 ft](#url=hikes.md&var.vBookId=' + [BookId] + if(vChapterId, '&var.vChapterId=' + vChapterId, '') + if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + if(vDistMin, '&var.vDistMin=' + vDistMin, '') + if(vDistMax, '&var.vDistMax=' + vDistMax, '') + '&var.vGainMin=0&var.vGainMax=500)'
-calculatedFields.6.name: Mod. Gain
-calculatedFields.6.expression: '[500 - 1500 ft](#url=hikes.md&var.vBookId=' + [BookId] + if(vChapterId, '&var.vChapterId=' + vChapterId, '') + if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + if(vDistMin, '&var.vDistMin=' + vDistMin, '') + if(vDistMax, '&var.vDistMax=' + vDistMax, '') + '&var.vGainMin=500&var.vGainMax=1500)'
-calculatedFields.7.name: High Gain
-calculatedFields.7.expression: '[1500+ ft](#url=hikes.md&var.vBookId=' + [BookId] + if(vChapterId, '&var.vChapterId=' + vChapterId, '') + if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + if(vDistMin, '&var.vDistMin=' + vDistMin, '') + if(vDistMax, '&var.vDistMax=' + vDistMax, '') + '&var.vGainMin=1500&var.vGainMax=10000)'
+calc.0.name: Book
+calc.0.expr: '[' + markdownEncode([Book Title]) + '](#url=hikes.md&var.vBookId=' + [BookId] + ')'
+calc.1.name: Min. Rating
+calc.1.expr: if(vRatingMin, vRatingMin, '')
+calc.2.name: Min. Dist.
+calc.2.expr: if(vDistMin, vDistMin, '')
+calc.3.name: Max. Dist.
+calc.3.expr: if(vDistMax, vDistMax, '')
+calc.4.name: Min. Gain
+calc.4.expr: if(vGainMin, vGainMin, '')
+calc.5.name: Max. Gain
+calc.5.expr: if(vGainMax, vGainMax, '')
 
-filter: vBookId == null || BookId == vBookId
+filter: (vBookId == null || BookId == vBookId) && \
+    (vChapterId == null || ChapterId == vChapterId) && \
+    (vRatingMin == null || Rating >= vRatingMin) && \
+    (vDistMin == null || [Distance (mi)] >= vDistMin) && \
+    (vDistMax == null || [Distance (mi)] <= vDistMax) && \
+    (vGainMin == null || [Elevation Gain (ft)] >= vGainMin) && \
+    (vGainMax == null || [Elevation Gain (ft)] <= vGainMax)
 
-sorts.0.field: BookId
+agg.category.0: BookId
+agg.category.1: Book
+agg.category.2: Min. Rating
+agg.category.3: Min. Dist.
+agg.category.4: Max. Dist.
+agg.category.5: Min. Gain
+agg.category.6: Max. Gain
+agg.measure.0.name: Hikes
+agg.measure.0.field: HikeId
+agg.measure.0.func: Count
 
-fields.0: Rating (4+)
-fields.1: Rating (3+)
-fields.2: Short Dist.
-fields.3: Med. Dist.
-fields.4: Long Dist.
-fields.5: Low Gain
-fields.6: Mod. Gain
-fields.7: High Gain
+sort.0.field: BookId
 
-markdownFields.0: Rating (4+)
-markdownFields.1: Rating (3+)
-markdownFields.2: Short Dist.
-markdownFields.3: Med. Dist.
-markdownFields.4: Long Dist.
-markdownFields.5: Low Gain
-markdownFields.6: Mod. Gain
-markdownFields.7: High Gain
+field.0: BookId
+field.1: Book
+field.2: Hikes
+field.3: Min. Rating
+field.4: Min. Dist.
+field.5: Max. Dist.
+field.6: Min. Gain
+field.7: Max. Gain
+
+markdown.0: Book
 ~~~
 
 ~~~ data-table
+// Chapters table
+
 data.url: books.csv
-data.joins.0.url: chapters.csv
-data.joins.0.leftExpression: [BookId]
-data.joins.1.url: hikes.csv
-data.joins.1.leftExpression: [BookId] + '-' + [ChapterId]
+data.join.0.url: chapters.csv
+data.join.0.left: [BookId]
+data.join.1.url: hikes.csv
+data.join.1.left: [BookId] + '-' + [ChapterId]
 
-calculatedFields.0.name: Chapter
-calculatedFields.0.expression: '[' + markdownEncode([Chapter Title]) + '](#url=hikes.md&var.vBookId=' + [BookId] + '&var.vChapterId=' + [ChapterId] + if(vRatingMin != null, '&var.vRatingMin=' + vRatingMin, '') + if(vDistMin != null, '&var.vDistMin=' + vDistMin, '') + if(vDistMax != null, '&var.vDistMax=' + vDistMax, '') + if(vGainMin != null, '&var.vGainMin=' + vGainMin, '') + if(vGainMax != null, '&var.vGainMax=' + vGainMax, '') + ')'
+calc.0.name: Chapter
+calc.0.expr: '[' + markdownEncode([Chapter Title]) + '](#url=hikes.md&var.vBookId=' + [BookId] + '&var.vChapterId=' + [ChapterId] + \
+    if(vRatingMin != null, '&var.vRatingMin=' + vRatingMin, '') + \
+    if(vDistMin != null, '&var.vDistMin=' + vDistMin, '') + \
+    if(vDistMax != null, '&var.vDistMax=' + vDistMax, '') + \
+    if(vGainMin != null, '&var.vGainMin=' + vGainMin, '') + \
+    if(vGainMax != null, '&var.vGainMax=' + vGainMax, '') + ')'
 
-filter: (vBookId == null || BookId == vBookId) && (vChapterId == null || ChapterId == vChapterId) && (vRatingMin == null || Rating >= vRatingMin) && (vDistMin == null || [Distance (mi)] >= vDistMin) && (vDistMax == null || [Distance (mi)] <= vDistMax) && (vGainMin == null || [Elevation Gain (ft)] >= vGainMin) && (vGainMax == null || [Elevation Gain (ft)] <= vGainMax)
+filter: (vBookId == null || BookId == vBookId) && \
+    (vChapterId == null || ChapterId == vChapterId) && \
+    (vRatingMin == null || Rating >= vRatingMin) && \
+    (vDistMin == null || [Distance (mi)] >= vDistMin) && \
+    (vDistMax == null || [Distance (mi)] <= vDistMax) && \
+    (vGainMin == null || [Elevation Gain (ft)] >= vGainMin) && \
+    (vGainMax == null || [Elevation Gain (ft)] <= vGainMax)
 
-aggregation.categoryFields.0: BookId
-aggregation.categoryFields.1: ChapterId
-aggregation.categoryFields.2: Chapter
-aggregation.measures.0.name: Hikes
-aggregation.measures.0.field: HikeId
-aggregation.measures.0.function: Count
+agg.category.0: BookId
+agg.category.1: ChapterId
+agg.category.2: Chapter
+agg.measure.0.name: Hikes
+agg.measure.0.field: HikeId
+agg.measure.0.func: Count
 
-sorts.0.field: BookId
-sorts.1.field: ChapterId
+sort.0.field: BookId
+sort.1.field: ChapterId
 
-categoryFields.0: BookId
-categoryFields.1: ChapterId
-fields.0: Chapter
-fields.1: Hikes
+category.0: BookId
+category.1: ChapterId
+field.0: Chapter
+field.1: Hikes
 
-markdownFields.0: Chapter
+markdown.0: Chapter
 ~~~
 
 ~~~ data-table
+// Hikes table
+
 data.url: books.csv
-data.joins.0.url: chapters.csv
-data.joins.0.leftExpression: [BookId]
-data.joins.1.url: hikes.csv
-data.joins.1.leftExpression: [BookId] + '-' + [ChapterId]
+data.join.0.url: chapters.csv
+data.join.0.left: [BookId]
+data.join.1.url: hikes.csv
+data.join.1.left: [BookId] + '-' + [ChapterId]
 
-filter: (vBookId == null || BookId == vBookId) && (vChapterId == null || ChapterId == vChapterId) && (vRatingMin == null || Rating >= vRatingMin) && (vDistMin == null || [Distance (mi)] >= vDistMin) && (vDistMax == null || [Distance (mi)] <= vDistMax) && (vGainMin == null || [Elevation Gain (ft)] >= vGainMin) && (vGainMax == null || [Elevation Gain (ft)] <= vGainMax)
+filter: (vBookId == null || BookId == vBookId) && \
+    (vChapterId == null || ChapterId == vChapterId) && \
+    (vRatingMin == null || Rating >= vRatingMin) && \
+    (vDistMin == null || [Distance (mi)] >= vDistMin) && \
+    (vDistMax == null || [Distance (mi)] <= vDistMax) && \
+    (vGainMin == null || [Elevation Gain (ft)] >= vGainMin) && \
+    (vGainMax == null || [Elevation Gain (ft)] <= vGainMax)
 
-sorts.0.field: Rating
-sorts.0.desc: true
-sorts.1.field: Difficulty
-sorts.2.field: Hike Title
+sort.0.field: Rating
+sort.0.desc: true
+sort.1.field: Difficulty
+sort.2.field: Hike Title
 
-fields.0: BookId
-fields.1: ChapterId
-fields.2: HikeId
-fields.3: Hike Title
-fields.4: Rating
-fields.5: Difficulty
-fields.6: Distance (mi)
-fields.7: Elevation Gain (ft)
-fields.8: High Point (ft)
-fields.9: Season
+field.0: BookId
+field.1: ChapterId
+field.2: HikeId
+field.3: Hike Title
+field.4: Rating
+field.5: Difficulty
+field.6: Distance (mi)
+field.7: Elevation Gain (ft)
+field.8: High Point (ft)
+field.9: Season
 ~~~

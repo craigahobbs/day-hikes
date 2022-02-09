@@ -10,17 +10,17 @@ Correlation
 
 ~~~ line-chart
 data.url: books.csv
-data.joins.0.url: authors.csv
-data.joins.0.leftExpression: AuthorId
-data.joins.1.url: hikes.csv
-data.joins.1.leftExpression: BookId
+data.join.0.url: authors.csv
+data.join.0.left: AuthorId
+data.join.1.url: hikes.csv
+data.join.1.left: BookId
 
-calculatedFields.0.name: UniqueId
-calculatedFields.0.expression: BookId + ', ' + ChapterId + ', ' + HikeId
+calc.0.name: UniqueId
+calc.0.expr: BookId + ', ' + ChapterId + ', ' + HikeId
 
-xField: Distance (mi)
-yFields.0: Rating
-colorField: UniqueId
+x: Distance (mi)
+y.0: Rating
+color: UniqueId
 ~~~
 
 
@@ -28,17 +28,17 @@ colorField: UniqueId
 
 ~~~ line-chart
 data.url: books.csv
-data.joins.0.url: authors.csv
-data.joins.0.leftExpression: AuthorId
-data.joins.1.url: hikes.csv
-data.joins.1.leftExpression: BookId
+data.join.0.url: authors.csv
+data.join.0.left: AuthorId
+data.join.1.url: hikes.csv
+data.join.1.left: BookId
 
-calculatedFields.0.name: UniqueId
-calculatedFields.0.expression: BookId + ', ' + ChapterId + ', ' + HikeId
+calc.0.name: UniqueId
+calc.0.expr: BookId + ', ' + ChapterId + ', ' + HikeId
 
-xField: Elevation Gain (ft)
-yFields.0: Rating
-colorField: UniqueId
+x: Elevation Gain (ft)
+y.0: Rating
+color: UniqueId
 ~~~
 
 
@@ -46,15 +46,15 @@ colorField: UniqueId
 
 ~~~ line-chart
 data.url: books.csv
-data.joins.0.url: authors.csv
-data.joins.0.leftExpression: AuthorId
-data.joins.1.url: hikes.csv
-data.joins.1.leftExpression: BookId
+data.join.0.url: authors.csv
+data.join.0.left: AuthorId
+data.join.1.url: hikes.csv
+data.join.1.left: BookId
 
-calculatedFields.0.name: UniqueId
-calculatedFields.0.expression: BookId + ', ' + ChapterId + ', ' + HikeId
+calc.0.name: UniqueId
+calc.0.expr: BookId + ', ' + ChapterId + ', ' + HikeId
 
-xField: High Point (ft)
-yFields.0: Rating
-colorField: UniqueId
+x: High Point (ft)
+y.0: Rating
+color: UniqueId
 ~~~

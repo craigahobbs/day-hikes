@@ -7,31 +7,25 @@ Books |
 
 ~~~ data-table
 data.url: books.csv
-data.joins.0.url: authors.csv
-data.joins.0.leftExpression: [AuthorId]
-data.joins.1.url: hikes.csv
-data.joins.1.leftExpression: [BookId]
+data.join.0.url: authors.csv
+data.join.0.left: [AuthorId]
+data.join.1.url: hikes.csv
+data.join.1.left: [BookId]
 
-calculatedFields.0.name: Book
-calculatedFields.0.expression: '[' + [Book Title] + '](#url=hikes.md&var.vBookId=' + [BookId] + ')'
-calculatedFields.1.name: ISBN Link
-calculatedFields.1.expression: '[' + [ISBN] + '](https://isbnsearch.org/isbn/' + [ISBN] + ')'
+calc.0.name: Book
+calc.0.expr: '[' + [Book Title] + '](#url=hikes.md&var.vBookId=' + [BookId] + ')'
+calc.1.name: ISBN Link
+calc.1.expr: '[' + [ISBN] + '](https://isbnsearch.org/isbn/' + [ISBN] + ')'
 
-aggregation.categoryFields.0: BookId
-aggregation.categoryFields.1: Book
-aggregation.categoryFields.2: Author
-aggregation.categoryFields.3: ISBN Link
-aggregation.measures.0.name: Hikes
-aggregation.measures.0.field: HikeId
-aggregation.measures.0.function: Count
+agg.category.0: Book
+agg.category.1: Author
+agg.category.2: ISBN Link
+agg.measure.0.name: Hikes
+agg.measure.0.field: HikeId
+agg.measure.0.func: Count
 
-sorts.0.field: Book
+sort.0.field: Book
 
-categoryFields.0: Book
-fields.0: Author
-fields.1: Hikes
-fields.2: ISBN Link
-
-markdownFields.0: Book
-markdownFields.1: ISBN Link
+markdown.0: Book
+markdown.1: ISBN Link
 ~~~
