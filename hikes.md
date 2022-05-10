@@ -6,7 +6,7 @@
 # Hikes
 
 ~~~ markdown-script
-// Hike filter links
+# Hike filter links
 markdownPrint( \
     '**Rating:** ', \
     '[Excellent](#url=hikes.md' + \
@@ -78,7 +78,7 @@ markdownPrint( \
 ~~~
 
 ~~~ data-table
-// Hike filter argument report
+# Hike filter argument report
 
 data.url: books.csv
 data.join.0.url: chapters.csv
@@ -133,7 +133,7 @@ markdown.0: Book
 ~~~
 
 ~~~ data-table
-// Chapters table
+# Chapters table
 
 data.url: books.csv
 data.join.0.url: chapters.csv
@@ -176,7 +176,7 @@ markdown.0: Chapter
 ~~~
 
 ~~~ data-table
-// Hikes table
+# Hikes table
 
 data.url: books.csv
 data.join.0.url: chapters.csv
