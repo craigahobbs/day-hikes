@@ -87,7 +87,7 @@ data.join.1.url: hikes.csv
 data.join.1.left: [BookId] + '-' + [ChapterId]
 
 calc.0.name: Book
-calc.0.expr: '[' + markdownEncode([Book Title]) + '](#url=hikes.md&var.vBookId=' + [BookId] + ')'
+calc.0.expr: '[' + markdownEscape([Book Title]) + '](#url=hikes.md&var.vBookId=' + [BookId] + ')'
 calc.1.name: Min. Rating
 calc.1.expr: if(vRatingMin, vRatingMin, '')
 calc.2.name: Min. Dist.
@@ -142,7 +142,7 @@ data.join.1.url: hikes.csv
 data.join.1.left: [BookId] + '-' + [ChapterId]
 
 calc.0.name: Chapter
-calc.0.expr: '[' + markdownEncode([Chapter Title]) + '](#url=hikes.md&var.vBookId=' + [BookId] + '&var.vChapterId=' + [ChapterId] + \
+calc.0.expr: '[' + markdownEscape([Chapter Title]) + '](#url=hikes.md&var.vBookId=' + [BookId] + '&var.vChapterId=' + [ChapterId] + \
     if(vRatingMin != null, '&var.vRatingMin=' + vRatingMin, '') + \
     if(vDistMin != null, '&var.vDistMin=' + vDistMin, '') + \
     if(vDistMax != null, '&var.vDistMax=' + vDistMax, '') + \
