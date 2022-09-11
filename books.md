@@ -5,7 +5,7 @@ Books |
 # Books
 
 ~~~ markdown-script
-# Load the book, author, and hike data
+# Load the book data
 data = dataParseCSV(fetch('books.csv', null, true))
 data = dataJoin(data, dataParseCSV(fetch('authors.csv', null, true)), 'AuthorId')
 data = dataJoin(data, dataParseCSV(fetch('hikes.csv', null, true)), 'BookId')

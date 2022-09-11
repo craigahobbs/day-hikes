@@ -5,205 +5,118 @@
 # Hikes
 
 ~~~ markdown-script
+function bookLink(text, bookId, chapterId, ratingMin, distMin, distMax, gainMin, gainMax)
+    bookId = if(bookId, bookId, vBookId)
+    chapterId = if(chapterId, chapterId, vChapterId)
+    ratingMin = if(ratingMin, ratingMin, vRatingMin)
+    distMin = if(distMin != null, if(distMin, distMin), vDistMin)
+    distMax = if(distMax != null, if(distMax, distMax), vDistMax)
+    gainMin = if(gainMin != null, if(gainMin, gainMin), vGainMin)
+    gainMax = if(gainMax != null, if(gainMax, gainMax), vGainMax)
+    return '[' + text + '](#url=hikes.md' + \
+        if(bookId, '&var.vBookId=' + bookId, '') + \
+        if(chapterId, '&var.vChapterId=' + chapterId, '') + \
+        if(ratingMin, '&var.vRatingMin=' + ratingMin, '') + \
+        if(distMin, '&var.vDistMin=' + distMin, '') + \
+        if(distMax, '&var.vDistMax=' + distMax, '') + \
+        if(gainMin, '&var.vGainMin=' + gainMin, '') + \
+        if(gainMax, '&var.vGainMax=' + gainMax, '') + ')'
+endfunction
+
 # Hike filter links
 markdownPrint( \
     '**Rating:** ', \
-    '[Excellent](#url=hikes.md' + \
-        if(vBookId, '&var.vBookId=' + vBookId) + \
-        if(vChapterId, '&var.vChapterId=' + vChapterId, '') + \
-        '&var.vRatingMin=4' + \
-        if(vDistMin, '&var.vDistMin=' + vDistMin, '') + \
-        if(vDistMax, '&var.vDistMax=' + vDistMax, '') + \
-        if(vGainMin, '&var.vGainMin=' + vGainMin, '') + \
-        if(vGainMax, '&var.vGainMax=' + vGainMax, '') + ')', \
-    '|', \
-    '[Good](#url=hikes.md' + \
-        if(vBookId, '&var.vBookId=' + vBookId) + \
-        if(vChapterId, '&var.vChapterId=' + vChapterId, '') + \
-        '&var.vRatingMin=3' + \
-        if(vDistMin, '&var.vDistMin=' + vDistMin, '') + \
-        if(vDistMax, '&var.vDistMax=' + vDistMax, '') + \
-        if(vGainMin, '&var.vGainMin=' + vGainMin, '') + \
-        if(vGainMax, '&var.vGainMax=' + vGainMax, '') + ')  ', \
+    bookLink('Excellent', null, null, 4), '|', \
+    bookLink('Good', null, null, 3) + '  ', \
     '**Distance:** ', \
-    '[Short](#url=hikes.md' + \
-        if(vBookId, '&var.vBookId=' + vBookId) + \
-        if(vChapterId, '&var.vChapterId=' + vChapterId, '') + \
-        if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + \
-        '&var.vDistMax=5' + \
-        if(vGainMin, '&var.vGainMin=' + vGainMin, '') + \
-        if(vGainMax, '&var.vGainMax=' + vGainMax, '') + ')', \
-    '|', \
-    '[Medium](#url=hikes.md' + \
-        if(vBookId, '&var.vBookId=' + vBookId) + \
-        if(vChapterId, '&var.vChapterId=' + vChapterId, '') + \
-        if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + \
-        '&var.vDistMin=5&var.vDistMax=10' + \
-        if(vGainMin, '&var.vGainMin=' + vGainMin, '') + \
-        if(vGainMax, '&var.vGainMax=' + vGainMax, '') + ')', \
-    '|', \
-    '[Long](#url=hikes.md' + \
-        if(vBookId, '&var.vBookId=' + vBookId) + \
-        if(vChapterId, '&var.vChapterId=' + vChapterId, '') + \
-        if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + \
-        '&var.vDistMin=10' + \
-        if(vGainMin, '&var.vGainMin=' + vGainMin, '') + \
-        if(vGainMax, '&var.vGainMax=' + vGainMax, '') + ')  ', \
+    bookLink('Short', null, null, null, 0, 5), '|', \
+    bookLink('Medium', null, null, null, 5, 10), '|', \
+    bookLink('Long', null, null, null, 10, 0) + '  ', \
     '**Gain:** ', \
-    '[Low](#url=hikes.md' + \
-        if(vBookId, '&var.vBookId=' + vBookId) + \
-        if(vChapterId, '&var.vChapterId=' + vChapterId, '') + \
-        if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + \
-        if(vDistMin, '&var.vDistMin=' + vDistMin, '') + \
-        if(vDistMax, '&var.vDistMax=' + vDistMax, '') + \
-       '&var.vGainMax=500)', \
-    '|', \
-    '[Moderate](#url=hikes.md' + \
-        if(vBookId, '&var.vBookId=' + vBookId) + \
-        if(vChapterId, '&var.vChapterId=' + vChapterId, '') + \
-        if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + \
-        if(vDistMin, '&var.vDistMin=' + vDistMin, '') + \
-        if(vDistMax, '&var.vDistMax=' + vDistMax, '') + \
-       '&var.vGainMin=500&var.vGainMax=1500)', \
-    '|', \
-    '[High](#url=hikes.md' + \
-        if(vBookId, '&var.vBookId=' + vBookId) + \
-        if(vChapterId, '&var.vChapterId=' + vChapterId, '') + \
-        if(vRatingMin, '&var.vRatingMin=' + vRatingMin, '') + \
-        if(vDistMin, '&var.vDistMin=' + vDistMin, '') + \
-        if(vDistMax, '&var.vDistMax=' + vDistMax, '') + \
-       '&var.vGainMin=1500)' \
+    bookLink('Low', null, null, null, null, null, 0, 500), '|', \
+    bookLink('Moderate', null, null, null, null, null, 500, 1500), '|', \
+    bookLink('High', null, null, null, null, null, 1500, 0) \
 )
-~~~
 
-~~~ data-table
-# Hike filter argument report
+# Load the book data
+data = dataParseCSV(fetch('books.csv', null, true))
+data = dataJoin(data, dataParseCSV(fetch('chapters.csv', null, true)), 'BookId')
+data = dataJoin(data, dataParseCSV(fetch('hikes.csv', null, true)), "[BookId] + '-' + [ChapterId]")
 
-data.url: books.csv
-data.join.0.url: chapters.csv
-data.join.0.left: [BookId]
-data.join.1.url: hikes.csv
-data.join.1.left: [BookId] + '-' + [ChapterId]
+# Filter & sort
+data = dataFilter( \
+    data, \
+    '(vBookId == null || BookId == vBookId) && ' + \
+        '(vChapterId == null || ChapterId == vChapterId) && ' + \
+        '(vRatingMin == null || Rating >= vRatingMin) && ' + \
+        '(vDistMin == null || [Distance (mi)] >= vDistMin) && ' + \
+        '(vDistMax == null || [Distance (mi)] <= vDistMax) && ' + \
+        '(vGainMin == null || [Elevation Gain (ft)] >= vGainMin) && ' + \
+        '(vGainMax == null || [Elevation Gain (ft)] <= vGainMax)', \
+    objectNew( \
+        'vBookId', vBookId, \
+        'vChapterId', vChapterId, \
+        'vDistMin', vDistMin, \
+        'vDistMax', vDistMax, \
+        'vGainMin', vGainMin, \
+        'vGainMax', vGainMax \
+    ) \
+)
+dataSort(data, arrayNew(arrayNew('BookId', 'ChapterId', arrayNew('Rating', true), arrayNew('Difficulty'), arrayNew('Hike Title'))))
 
-calc.0.name: Book
-calc.0.expr: '[' + [Book Title] + '](#url=hikes.md&var.vBookId=' + [BookId] + ')'
-calc.1.name: Min. Rating
-calc.1.expr: if(vRatingMin, vRatingMin, '')
-calc.2.name: Min. Dist.
-calc.2.expr: if(vDistMin, vDistMin, '')
-calc.3.name: Max. Dist.
-calc.3.expr: if(vDistMax, vDistMax, '')
-calc.4.name: Min. Gain
-calc.4.expr: if(vGainMin, vGainMin, '')
-calc.5.name: Max. Gain
-calc.5.expr: if(vGainMax, vGainMax, '')
+# Count the filtered hikes by book
+dataBooks = dataAggregate(data, objectNew( \
+    'categories', arrayNew('BookId', 'Book Title'), \
+    'measures', arrayNew( \
+        objectNew('name', 'Hikes', 'field', 'HikeId', 'function', 'count') \
+    ) \
+))
 
-filter: (vBookId == null || BookId == vBookId) && \
-    (vChapterId == null || ChapterId == vChapterId) && \
-    (vRatingMin == null || Rating >= vRatingMin) && \
-    (vDistMin == null || [Distance (mi)] >= vDistMin) && \
-    (vDistMax == null || [Distance (mi)] <= vDistMax) && \
-    (vGainMin == null || [Elevation Gain (ft)] >= vGainMin) && \
-    (vGainMax == null || [Elevation Gain (ft)] <= vGainMax)
+# Add the book calculated fields
+dataCalculatedField(dataBooks, 'Book', "'[' + [Book Title] + '](#url=hikes.md&var.vBookId=' + [BookId] + ')'")
+dataCalculatedField(dataBooks, 'Min. Rating', "if(vRatingMin, vRatingMin, '')", objectNew('vRatingMin', vRatingMin))
+dataCalculatedField(dataBooks, 'Min. Dist.', "if(vDistMin, vDistMin, '')", objectNew('vDistMin', vDistMin))
+dataCalculatedField(dataBooks, 'Max. Dist.', "if(vDistMax, vDistMax, '')", objectNew('vDistMax', vDistMax))
+dataCalculatedField(dataBooks, 'Min. Gain', "if(vGainMin, vGainMin, '')", objectNew('vGainMin', vGainMin))
+dataCalculatedField(dataBooks, 'Max. Gain', "if(vGainMax, vGainMax, '')", objectNew('vGainMax', vGainMax))
 
-agg.category.0: BookId
-agg.category.1: Book
-agg.category.2: Min. Rating
-agg.category.3: Min. Dist.
-agg.category.4: Max. Dist.
-agg.category.5: Min. Gain
-agg.category.6: Max. Gain
-agg.measure.0.name: Hikes
-agg.measure.0.field: HikeId
-agg.measure.0.func: Count
+# Count the filtered hikes by book/chapter
+dataChapters = dataAggregate(data, objectNew( \
+    'categories', arrayNew('BookId', 'ChapterId', 'Chapter Title'), \
+    'measures', arrayNew( \
+        objectNew('name', 'Hikes', 'field', 'HikeId', 'function', 'count') \
+    ) \
+))
 
-sort.0.field: BookId
+# Add the chapter calculated fields
+dataCalculatedField(dataChapters, 'Chapter', "bookLink([Chapter Title], BookId, ChapterId)", objectNew('bookLink', bookLink))
 
-field.0: BookId
-field.1: Book
-field.2: Hikes
-field.3: Min. Rating
-field.4: Min. Dist.
-field.5: Max. Dist.
-field.6: Min. Gain
-field.7: Max. Gain
+# Render the books table
+dataTable(dataBooks, objectNew( \
+    'fields', arrayNew('BookId', 'Book', 'Hikes', 'Min. Rating', 'Min. Dist.', 'Max. Dist.', 'Min. Gain', 'Max. Gain'), \
+    'markdown', arrayNew('Book') \
+))
 
-markdown.0: Book
-~~~
+# Render the chapters table
+dataTable(dataChapters, objectNew( \
+    'categories', arrayNew('BookId', 'ChapterId'), \
+    'fields', arrayNew('Chapter', 'Hikes'), \
+    'markdown', arrayNew('Chapter') \
+))
 
-~~~ data-table
-# Chapters table
-
-data.url: books.csv
-data.join.0.url: chapters.csv
-data.join.0.left: [BookId]
-data.join.1.url: hikes.csv
-data.join.1.left: [BookId] + '-' + [ChapterId]
-
-calc.0.name: Chapter
-calc.0.expr: '[' + [Chapter Title] + '](#url=hikes.md&var.vBookId=' + [BookId] + '&var.vChapterId=' + [ChapterId] + \
-    if(vRatingMin != null, '&var.vRatingMin=' + vRatingMin, '') + \
-    if(vDistMin != null, '&var.vDistMin=' + vDistMin, '') + \
-    if(vDistMax != null, '&var.vDistMax=' + vDistMax, '') + \
-    if(vGainMin != null, '&var.vGainMin=' + vGainMin, '') + \
-    if(vGainMax != null, '&var.vGainMax=' + vGainMax, '') + ')'
-
-filter: (vBookId == null || BookId == vBookId) && \
-    (vChapterId == null || ChapterId == vChapterId) && \
-    (vRatingMin == null || Rating >= vRatingMin) && \
-    (vDistMin == null || [Distance (mi)] >= vDistMin) && \
-    (vDistMax == null || [Distance (mi)] <= vDistMax) && \
-    (vGainMin == null || [Elevation Gain (ft)] >= vGainMin) && \
-    (vGainMax == null || [Elevation Gain (ft)] <= vGainMax)
-
-agg.category.0: BookId
-agg.category.1: ChapterId
-agg.category.2: Chapter
-agg.measure.0.name: Hikes
-agg.measure.0.field: HikeId
-agg.measure.0.func: Count
-
-sort.0.field: BookId
-sort.1.field: ChapterId
-
-category.0: BookId
-category.1: ChapterId
-field.0: Chapter
-field.1: Hikes
-
-markdown.0: Chapter
-~~~
-
-~~~ data-table
-# Hikes table
-
-data.url: books.csv
-data.join.0.url: chapters.csv
-data.join.0.left: [BookId]
-data.join.1.url: hikes.csv
-data.join.1.left: [BookId] + '-' + [ChapterId]
-
-filter: (vBookId == null || BookId == vBookId) && \
-    (vChapterId == null || ChapterId == vChapterId) && \
-    (vRatingMin == null || Rating >= vRatingMin) && \
-    (vDistMin == null || [Distance (mi)] >= vDistMin) && \
-    (vDistMax == null || [Distance (mi)] <= vDistMax) && \
-    (vGainMin == null || [Elevation Gain (ft)] >= vGainMin) && \
-    (vGainMax == null || [Elevation Gain (ft)] <= vGainMax)
-
-sort.0.field: Rating
-sort.0.desc: true
-sort.1.field: Difficulty
-sort.2.field: Hike Title
-
-field.0: BookId
-field.1: ChapterId
-field.2: HikeId
-field.3: Hike Title
-field.4: Rating
-field.5: Difficulty
-field.6: Distance (mi)
-field.7: Elevation Gain (ft)
-field.8: High Point (ft)
-field.9: Season
+# Render the hikes table
+dataTable(data, objectNew( \
+    'fields', arrayNew( \
+        'BookId', \
+        'ChapterId', \
+        'HikeId', \
+        'Hike Title', \
+        'Rating', \
+        'Difficulty', \
+        'Distance (mi)', \
+        'Elevation Gain (ft)', \
+        'High Point (ft)', \
+        'Season' \
+    ) \
+))
 ~~~
