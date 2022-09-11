@@ -56,6 +56,7 @@ data = dataFilter( \
     objectNew( \
         'vBookId', vBookId, \
         'vChapterId', vChapterId, \
+        'vRatingMin', vRatingMin, \
         'vDistMin', vDistMin, \
         'vDistMax', vDistMax, \
         'vGainMin', vGainMin, \
