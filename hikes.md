@@ -5,39 +5,6 @@
 # Hikes
 
 ~~~ markdown-script
-function bookLink(text, bookId, chapterId, ratingMin, distMin, distMax, gainMin, gainMax)
-    bookId = if(bookId, bookId, vBookId)
-    chapterId = if(chapterId, chapterId, vChapterId)
-    ratingMin = if(ratingMin, ratingMin, vRatingMin)
-    distMin = if(distMin != null, if(distMin, distMin), vDistMin)
-    distMax = if(distMax != null, if(distMax, distMax), vDistMax)
-    gainMin = if(gainMin != null, if(gainMin, gainMin), vGainMin)
-    gainMax = if(gainMax != null, if(gainMax, gainMax), vGainMax)
-    return '[' + text + '](#url=hikes.md' + \
-        if(bookId, '&var.vBookId=' + bookId, '') + \
-        if(chapterId, '&var.vChapterId=' + chapterId, '') + \
-        if(ratingMin, '&var.vRatingMin=' + ratingMin, '') + \
-        if(distMin, '&var.vDistMin=' + distMin, '') + \
-        if(distMax, '&var.vDistMax=' + distMax, '') + \
-        if(gainMin, '&var.vGainMin=' + gainMin, '') + \
-        if(gainMax, '&var.vGainMax=' + gainMax, '') + ')'
-endfunction
-
-# Hike filter links
-markdownPrint( \
-    '**Rating:** ', \
-    bookLink('Excellent', null, null, 4), '|', \
-    bookLink('Good', null, null, 3) + '  ', \
-    '**Distance:** ', \
-    bookLink('Short', null, null, null, 0, 5), '|', \
-    bookLink('Medium', null, null, null, 5, 10), '|', \
-    bookLink('Long', null, null, null, 10, 0) + '  ', \
-    '**Gain:** ', \
-    bookLink('Low', null, null, null, null, null, 0, 500), '|', \
-    bookLink('Moderate', null, null, null, null, null, 500, 1500), '|', \
-    bookLink('High', null, null, null, null, null, 1500, 0) \
-)
-
 # Load the book data
 data = dataParseCSV(fetch('books.csv', null, true))
 data = dataJoin(data, dataParseCSV(fetch('chapters.csv', null, true)), 'BookId')
@@ -91,6 +58,40 @@ dataChapters = dataAggregate(data, objectNew( \
 
 # Add the chapter calculated fields
 dataCalculatedField(dataChapters, 'Chapter', "bookLink([Chapter Title], BookId, ChapterId)", objectNew('bookLink', bookLink))
+
+# Filter link helper function
+function bookLink(text, bookId, chapterId, ratingMin, distMin, distMax, gainMin, gainMax)
+    bookId = if(bookId, bookId, vBookId)
+    chapterId = if(chapterId, chapterId, vChapterId)
+    ratingMin = if(ratingMin, ratingMin, vRatingMin)
+    distMin = if(distMin != null, if(distMin, distMin), vDistMin)
+    distMax = if(distMax != null, if(distMax, distMax), vDistMax)
+    gainMin = if(gainMin != null, if(gainMin, gainMin), vGainMin)
+    gainMax = if(gainMax != null, if(gainMax, gainMax), vGainMax)
+    return '[' + text + '](#url=hikes.md' + \
+        if(bookId, '&var.vBookId=' + bookId, '') + \
+        if(chapterId, '&var.vChapterId=' + chapterId, '') + \
+        if(ratingMin, '&var.vRatingMin=' + ratingMin, '') + \
+        if(distMin, '&var.vDistMin=' + distMin, '') + \
+        if(distMax, '&var.vDistMax=' + distMax, '') + \
+        if(gainMin, '&var.vGainMin=' + gainMin, '') + \
+        if(gainMax, '&var.vGainMax=' + gainMax, '') + ')'
+endfunction
+
+# Render the filter links
+markdownPrint( \
+    '**Rating:** ', \
+    bookLink('Excellent', null, null, 4), '|', \
+    bookLink('Good', null, null, 3) + '  ', \
+    '**Distance:** ', \
+    bookLink('Short', null, null, null, 0, 5), '|', \
+    bookLink('Medium', null, null, null, 5, 10), '|', \
+    bookLink('Long', null, null, null, 10, 0) + '  ', \
+    '**Gain:** ', \
+    bookLink('Low', null, null, null, null, null, 0, 500), '|', \
+    bookLink('Moderate', null, null, null, null, null, 500, 1500), '|', \
+    bookLink('High', null, null, null, null, null, 1500, 0) \
+)
 
 # Render the books table
 dataTable(dataBooks, objectNew( \

@@ -2,59 +2,38 @@
 [Books](#url=books.md) |
 Correlation
 
-
 # Hike Data Correlation
 
+~~~ markdown-script
+# Load the book data
+data = dataParseCSV(fetch('books.csv', null, true))
+data = dataJoin(data, dataParseCSV(fetch('chapters.csv', null, true)), 'BookId')
+data = dataJoin(data, dataParseCSV(fetch('hikes.csv', null, true)), "[BookId] + '-' + [ChapterId]")
 
-### Hike Rating vs. Distance
+# Add the unique ID calculated field
+dataCalculatedField(data, 'UniqueId', "BookId + ', ' + ChapterId + ', ' + HikeId")
 
-~~~ line-chart
-data.url: books.csv
-data.join.0.url: authors.csv
-data.join.0.left: AuthorId
-data.join.1.url: hikes.csv
-data.join.1.left: BookId
+# Draw the hike rating vs distance scatter plot
+markdownPrint('', '## Hike Rating vs. Distance')
+dataLineChart(data, objectNew( \
+    'x', 'Distance (mi)', \
+    'y', arrayNew('Rating'), \
+    'color', 'UniqueId' \
+))
 
-calc.0.name: UniqueId
-calc.0.expr: BookId + ', ' + ChapterId + ', ' + HikeId
+# Draw the hike rating vs elevation gain scatter plot
+markdownPrint('', '## Hike Rating vs. Elevation Gain')
+dataLineChart(data, objectNew( \
+    'x', 'Elevation Gain (ft)', \
+    'y', arrayNew('Rating'), \
+    'color', 'UniqueId' \
+))
 
-x: Distance (mi)
-y.0: Rating
-color: UniqueId
-~~~
-
-
-### Hike Rating vs. Elevation Gain
-
-~~~ line-chart
-data.url: books.csv
-data.join.0.url: authors.csv
-data.join.0.left: AuthorId
-data.join.1.url: hikes.csv
-data.join.1.left: BookId
-
-calc.0.name: UniqueId
-calc.0.expr: BookId + ', ' + ChapterId + ', ' + HikeId
-
-x: Elevation Gain (ft)
-y.0: Rating
-color: UniqueId
-~~~
-
-
-### Hike Rating vs. High Point
-
-~~~ line-chart
-data.url: books.csv
-data.join.0.url: authors.csv
-data.join.0.left: AuthorId
-data.join.1.url: hikes.csv
-data.join.1.left: BookId
-
-calc.0.name: UniqueId
-calc.0.expr: BookId + ', ' + ChapterId + ', ' + HikeId
-
-x: High Point (ft)
-y.0: Rating
-color: UniqueId
+# Draw the hike rating vs elevation gain scatter plot
+markdownPrint('', '## Hike Rating vs. High Point')
+dataLineChart(data, objectNew( \
+    'x', 'High Point (ft)', \
+    'y', arrayNew('Rating'), \
+    'color', 'UniqueId' \
+))
 ~~~
