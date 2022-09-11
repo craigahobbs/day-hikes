@@ -2,30 +2,30 @@
 Books |
 [Correlation](#url=correlation.md)
 
-
 # Books
 
-~~~ data-table
-data.url: books.csv
-data.join.0.url: authors.csv
-data.join.0.left: [AuthorId]
-data.join.1.url: hikes.csv
-data.join.1.left: [BookId]
+~~~ markdown-script
+# Load the book, author, and hike data
+data = dataParseCSV(fetch('books.csv', null, true))
+data = dataJoin(data, dataParseCSV(fetch('authors.csv', null, true)), 'AuthorId')
+data = dataJoin(data, dataParseCSV(fetch('hikes.csv', null, true)), 'BookId')
 
-calc.0.name: Book
-calc.0.expr: '[' + [Book Title] + '](#url=hikes.md&var.vBookId=' + [BookId] + ')'
-calc.1.name: ISBN Link
-calc.1.expr: '[' + [ISBN] + '](https://isbnsearch.org/isbn/' + [ISBN] + ')'
+# Add the book and ISBN link fields
+dataCalculatedField(data, 'Book', "'[' + [Book Title] + '](#url=hikes.md&var.vBookId=' + [BookId] + ')'")
+dataCalculatedField(data, 'ISBN', "'[' + [ISBN] + '](https://isbnsearch.org/isbn/' + [ISBN] + ')'")
 
-agg.category.0: Book
-agg.category.1: Author
-agg.category.2: ISBN Link
-agg.measure.0.name: Hikes
-agg.measure.0.field: HikeId
-agg.measure.0.func: Count
+# Count the number of hikes per book
+dataBooks = dataAggregate(data, objectNew(\
+    'categories', arrayNew('Book', 'Author', 'ISBN'), \
+    'measures', arrayNew( \
+        objectNew('name', 'Hikes', 'field', 'HikeId', 'function', 'count') \
+    ) \
+))
 
-sort.0.field: Book
-
-markdown.0: Book
-markdown.1: ISBN Link
+# Render the books table
+dataSort(dataBooks, arrayNew(arrayNew('Book')))
+dataTable(dataBooks, objectNew( \
+    'fields', arrayNew('Book', 'Author', 'ISBN', 'Hikes'), \
+    'markdown', arrayNew('Book', 'ISBN') \
+))
 ~~~

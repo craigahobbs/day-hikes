@@ -2,7 +2,6 @@
 [Books](#url=books.md) |
 [Correlation](#url=correlation.md)
 
-
 # Hikes
 
 ~~~ markdown-script
