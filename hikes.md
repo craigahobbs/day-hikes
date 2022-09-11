@@ -14,7 +14,7 @@ function bookLink(text, bookId, chapterId, ratingMin, distMin, distMax, gainMin,
     distMax = if(distMax != null, if(distMax, distMax), vDistMax)
     gainMin = if(gainMin != null, if(gainMin, gainMin), vGainMin)
     gainMax = if(gainMax != null, if(gainMax, gainMax), vGainMax)
-    return '[' + text + '](#url=hikes.md' + \
+    return '[' + markdownEscape(text) + '](#url=hikes.md' + \
         if(bookId, '&var.vBookId=' + bookId, '') + \
         if(chapterId, '&var.vChapterId=' + chapterId, '') + \
         if(ratingMin, '&var.vRatingMin=' + ratingMin, '') + \
@@ -42,7 +42,7 @@ markdownPrint( \
 # Load the book data
 data = dataParseCSV(fetch('books.csv', null, true))
 data = dataJoin(data, dataParseCSV(fetch('chapters.csv', null, true)), 'BookId')
-data = dataJoin(data, dataParseCSV(fetch('hikes.csv', null, true)), "[BookId] + '-' + [ChapterId]")
+data = dataJoin(data, dataParseCSV(fetch('hikes.csv', null, true)), "BookId + '-' + ChapterId")
 
 # Filter & sort
 filterVariables = objectNew( \
@@ -53,7 +53,8 @@ filterVariables = objectNew( \
     'vDistMax', vDistMax, \
     'vGainMin', vGainMin, \
     'vGainMax', vGainMax, \
-    'bookLink', bookLink \
+    'bookLink', bookLink, \
+    'markdownEscape', markdownEscape \
 )
 data = dataFilter( \
     data, \
@@ -66,7 +67,7 @@ data = dataFilter( \
         '(vGainMax == null || [Elevation Gain (ft)] <= vGainMax)', \
     filterVariables \
 )
-dataSort(data, arrayNew(arrayNew('BookId', 'ChapterId', arrayNew('Rating', true), arrayNew('Difficulty'), arrayNew('Hike Title'))))
+dataSort(data, arrayNew(arrayNew('BookId'), arrayNew('ChapterId'), arrayNew('Rating', true), arrayNew('Difficulty'), arrayNew('Hike Title')))
 
 # Count the filtered hikes by book
 dataBooks = dataAggregate(data, objectNew( \
@@ -77,7 +78,7 @@ dataBooks = dataAggregate(data, objectNew( \
 ))
 
 # Add the book calculated fields
-dataCalculatedField(dataBooks, 'Book', "'[' + [Book Title] + '](#url=hikes.md&var.vBookId=' + [BookId] + ')'")
+dataCalculatedField(dataBooks, 'Book', "'[' + markdownEscape([Book Title]) + '](#url=hikes.md&var.vBookId=' + BookId + ')'", filterVariables)
 dataCalculatedField(dataBooks, 'Min. Rating', "if(vRatingMin, vRatingMin, '')", filterVariables)
 dataCalculatedField(dataBooks, 'Min. Dist.', "if(vDistMin, vDistMin, '')", filterVariables)
 dataCalculatedField(dataBooks, 'Max. Dist.', "if(vDistMax, vDistMax, '')", filterVariables)
