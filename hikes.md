@@ -45,6 +45,16 @@ data = dataJoin(data, dataParseCSV(fetch('chapters.csv', null, true)), 'BookId')
 data = dataJoin(data, dataParseCSV(fetch('hikes.csv', null, true)), "[BookId] + '-' + [ChapterId]")
 
 # Filter & sort
+filterVariables = objectNew( \
+    'vBookId', vBookId, \
+    'vChapterId', vChapterId, \
+    'vRatingMin', vRatingMin, \
+    'vDistMin', vDistMin, \
+    'vDistMax', vDistMax, \
+    'vGainMin', vGainMin, \
+    'vGainMax', vGainMax, \
+    'bookLink', bookLink \
+)
 data = dataFilter( \
     data, \
     '(vBookId == null || BookId == vBookId) && ' + \
@@ -54,15 +64,7 @@ data = dataFilter( \
         '(vDistMax == null || [Distance (mi)] <= vDistMax) && ' + \
         '(vGainMin == null || [Elevation Gain (ft)] >= vGainMin) && ' + \
         '(vGainMax == null || [Elevation Gain (ft)] <= vGainMax)', \
-    objectNew( \
-        'vBookId', vBookId, \
-        'vChapterId', vChapterId, \
-        'vRatingMin', vRatingMin, \
-        'vDistMin', vDistMin, \
-        'vDistMax', vDistMax, \
-        'vGainMin', vGainMin, \
-        'vGainMax', vGainMax \
-    ) \
+    filterVariables \
 )
 dataSort(data, arrayNew(arrayNew('BookId', 'ChapterId', arrayNew('Rating', true), arrayNew('Difficulty'), arrayNew('Hike Title'))))
 
@@ -76,11 +78,11 @@ dataBooks = dataAggregate(data, objectNew( \
 
 # Add the book calculated fields
 dataCalculatedField(dataBooks, 'Book', "'[' + [Book Title] + '](#url=hikes.md&var.vBookId=' + [BookId] + ')'")
-dataCalculatedField(dataBooks, 'Min. Rating', "if(vRatingMin, vRatingMin, '')", objectNew('vRatingMin', vRatingMin))
-dataCalculatedField(dataBooks, 'Min. Dist.', "if(vDistMin, vDistMin, '')", objectNew('vDistMin', vDistMin))
-dataCalculatedField(dataBooks, 'Max. Dist.', "if(vDistMax, vDistMax, '')", objectNew('vDistMax', vDistMax))
-dataCalculatedField(dataBooks, 'Min. Gain', "if(vGainMin, vGainMin, '')", objectNew('vGainMin', vGainMin))
-dataCalculatedField(dataBooks, 'Max. Gain', "if(vGainMax, vGainMax, '')", objectNew('vGainMax', vGainMax))
+dataCalculatedField(dataBooks, 'Min. Rating', "if(vRatingMin, vRatingMin, '')", filterVariables)
+dataCalculatedField(dataBooks, 'Min. Dist.', "if(vDistMin, vDistMin, '')", filterVariables)
+dataCalculatedField(dataBooks, 'Max. Dist.', "if(vDistMax, vDistMax, '')", filterVariables)
+dataCalculatedField(dataBooks, 'Min. Gain', "if(vGainMin, vGainMin, '')", filterVariables)
+dataCalculatedField(dataBooks, 'Max. Gain', "if(vGainMax, vGainMax, '')", filterVariables)
 
 # Count the filtered hikes by book/chapter
 dataChapters = dataAggregate(data, objectNew( \
@@ -91,7 +93,7 @@ dataChapters = dataAggregate(data, objectNew( \
 ))
 
 # Add the chapter calculated fields
-dataCalculatedField(dataChapters, 'Chapter', "bookLink([Chapter Title], BookId, ChapterId)", objectNew('bookLink', bookLink))
+dataCalculatedField(dataChapters, 'Chapter', "bookLink([Chapter Title], BookId, ChapterId)", filterVariables)
 
 # Render the books table
 dataTable(dataBooks, objectNew( \
