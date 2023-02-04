@@ -53,8 +53,7 @@ filterVariables = objectNew( \
     'vDistMax', vDistMax, \
     'vGainMin', vGainMin, \
     'vGainMax', vGainMax, \
-    'bookLink', bookLink, \
-    'markdownEscape', markdownEscape \
+    'bookLink', bookLink \
 )
 data = dataFilter( \
     data, \
