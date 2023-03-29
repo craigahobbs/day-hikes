@@ -1,7 +1,7 @@
 BookId,ChapterId,HikeId,Hike Title,Rating,Difficulty,Distance (mi),Elevation Gain (ft),High Point (ft),Season
 1,1,1,Wildside Trail - De Leo Wall,3,2,4,350,950,Year-round
 1,1,2,Red Town Meadow,3,1,1.5,150,800,Year-round
-1,1,3,Call Creek Falls,3,2,2.5,350,1000,Year-round
+1,1,3,Coal Creek Falls,3,2,2.5,350,1000,Year-round
 1,1,4,Anti-Aircraft Peak,4,2,6,625,1525,Year-round
 1,1,5,Wilderness Peak,3,3,4,1200,1600,Year-round
 1,1,6,Poo Poo Point-High School Trail,3,3,7.4,1650,1850,Mar-Nov
