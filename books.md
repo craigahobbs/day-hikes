@@ -6,9 +6,9 @@ Books |
 
 ~~~ markdown-script
 # Load the book data
-data = dataParseCSV(fetch('books.csv', null, true))
-data = dataJoin(data, dataParseCSV(fetch('authors.csv', null, true)), 'AuthorId')
-data = dataJoin(data, dataParseCSV(fetch('hikes.csv', null, true)), 'BookId')
+data = dataParseCSV(httpFetch('books.csv', null, true))
+data = dataJoin(data, dataParseCSV(httpFetch('authors.csv', null, true)), 'AuthorId')
+data = dataJoin(data, dataParseCSV(httpFetch('hikes.csv', null, true)), 'BookId')
 
 # Add the book and ISBN link fields
 dataCalculatedField(data, 'Book', "'[' + [Book Title] + '](#url=hikes.md&var.vBookId=' + [BookId] + ')'")
