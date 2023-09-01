@@ -40,9 +40,9 @@ markdownPrint( \
 )
 
 # Load the book data
-data = dataParseCSV(httpFetch('books.csv', null, true))
-data = dataJoin(data, dataParseCSV(httpFetch('chapters.csv', null, true)), 'BookId')
-data = dataJoin(data, dataParseCSV(httpFetch('hikes.csv', null, true)), "BookId + '-' + ChapterId")
+data = dataParseCSV(systemFetch('books.csv', null, true))
+data = dataJoin(data, dataParseCSV(systemFetch('chapters.csv', null, true)), 'BookId')
+data = dataJoin(data, dataParseCSV(systemFetch('hikes.csv', null, true)), "BookId + '-' + ChapterId")
 
 # Filter & sort
 filterVariables = objectNew( \
