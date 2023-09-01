@@ -26,6 +26,9 @@ dataBooks = dataAggregate(data, objectNew(\
 dataSort(dataBooks, arrayNew(arrayNew('Book')))
 dataTable(dataBooks, objectNew( \
     'fields', arrayNew('Book', 'Author', 'ISBN', 'Hikes'), \
-    'markdown', arrayNew('Book', 'ISBN') \
+    'formats', objectNew( \
+        'Book', objectNew('markdown', true), \
+        'ISBN', objectNew('markdown', true) \
+    ) \
 ))
 ~~~

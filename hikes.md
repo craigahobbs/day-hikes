@@ -98,14 +98,18 @@ dataCalculatedField(dataChapters, 'Chapter', "bookLink([Chapter Title], BookId, 
 # Render the books table
 dataTable(dataBooks, objectNew( \
     'fields', arrayNew('BookId', 'Book', 'Hikes', 'Min. Rating', 'Min. Dist.', 'Max. Dist.', 'Min. Gain', 'Max. Gain'), \
-    'markdown', arrayNew('Book') \
+    'formats', objectNew( \
+        'Book', objectNew('markdown', true) \
+    ) \
 ))
 
 # Render the chapters table
 dataTable(dataChapters, objectNew( \
     'categories', arrayNew('BookId', 'ChapterId'), \
     'fields', arrayNew('Chapter', 'Hikes'), \
-    'markdown', arrayNew('Chapter') \
+    'formats', objectNew( \
+        'Chapter', objectNew('markdown', true) \
+    ) \
 ))
 
 # Render the hikes table
