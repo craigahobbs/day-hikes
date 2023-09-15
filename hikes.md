@@ -6,7 +6,7 @@
 
 ~~~ markdown-script
 # Filter link helper function
-function bookLink(text, bookId, chapterId, ratingMin, distMin, distMax, gainMin, gainMax)
+function bookLink(text, bookId, chapterId, ratingMin, distMin, distMax, gainMin, gainMax):
     bookId = if(bookId, bookId, vBookId)
     chapterId = if(chapterId, chapterId, vChapterId)
     ratingMin = if(ratingMin, ratingMin, vRatingMin)
