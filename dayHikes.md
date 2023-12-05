@@ -9,8 +9,7 @@ include <pager.mds>
 async function dayHikesMain():
     pagerModel = objectNew( \
         'pages', arrayNew( \
-            objectNew('name', 'Home', 'type', objectNew( 'link', objectNew( \
-                'name', 'Home', \
+            objectNew('name', 'Home', 'type', objectNew('link', objectNew( \
                 'url', '#url=README.md&var=' \
             ))), \
             objectNew('name', 'Books', 'type', objectNew('function', objectNew( \
