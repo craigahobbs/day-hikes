@@ -26,7 +26,7 @@ async function dayHikesMain():
             ))) \
         ) \
     )
-    pagerMain(pagerModel, objectNew('arguments', dayHikesArguments, 'start', 'Books', 'hideNav', false))
+    pagerMain(pagerModel, objectNew('arguments', dayHikesArguments, 'start', 'Books', 'hideNav', true))
 endfunction
 
 
