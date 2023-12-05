@@ -3,47 +3,31 @@
 # https://github.com/craigahobbs/day-hikes/blob/main/LICENSE
 
 include <args.mds>
+include <pager.mds>
 
 
 async function dayHikesMain():
-    # Parse arguments
-    args = argsParse(dayHikesArguments)
-    curPageName = objectGet(args, 'page')
-
-    # Render the menu
-    markdownPrint('[Home](#url=README.md&var=)')
-    pages = arrayNew( \
-        objectNew('fn', dayHikesBooks, 'name', 'Books', 'title', 'Day Hikes Books'), \
-        objectNew('fn', dayHikesHikes, 'name', 'Hikes', 'title', 'Day Hikes'), \
-        objectNew('fn', dayHikesCorrelation, 'name', 'Correlation', 'title', 'Hike Data Correlation') \
+    pagerModel = objectNew( \
+        'pages', arrayNew( \
+            objectNew('name', 'Home', 'type', objectNew( 'link', objectNew( \
+                'name', 'Home', \
+                'url', '#url=README.md&var=' \
+            ))), \
+            objectNew('name', 'Books', 'type', objectNew('function', objectNew( \
+                'function', dayHikesBooks, \
+                'title', 'Day Hikes Books' \
+            ))), \
+            objectNew('name', 'Hikes', 'type', objectNew('function', objectNew( \
+                'function', dayHikesHikes, \
+                'title', 'Day Hikes' \
+            ))), \
+            objectNew('name', 'Correlation', 'type', objectNew('function', objectNew( \
+                'function', dayHikesCorrelation, \
+                'title', 'Hike Data Correlation' \
+            ))) \
+        ) \
     )
-    curPage = null
-    for page, ixPage in pages:
-        pageName = objectGet(page, 'name')
-        pageHidden = objectGet(page, 'hidden')
-        if pageName == curPageName:
-            curPage = page
-            if !pageHidden:
-                markdownPrint('| ' + markdownEscape(pageName))
-            endif
-        else:
-            if !pageHidden:
-                markdownPrint('| ' + argsLink(dayHikesArguments, pageName, objectNew('page', pageName)))
-            endif
-        endif
-    endfor
-    if curPage == null:
-        curPage = arrayGet(pages, 0)
-    endif
-
-    # Set the title
-    curPageTitle = objectGet(curPage, 'title')
-    markdownPrint('', '# ' + curPageTitle, '')
-    documentSetTitle(curPageTitle)
-
-    # Render the page
-    curPageFn = objectGet(curPage, 'fn')
-    curPageFn(args)
+    pagerMain(pagerModel, dayHikesArguments)
 endfunction
 
 
