@@ -46,9 +46,9 @@ dayHikesArguments = argsValidate(arrayNew( \
 # The Day Hikes Books page
 async function dayHikesBooks():
     # Load the book data
-    data = dataParseCSV(systemFetch('books.csv', null, true))
-    data = dataJoin(data, dataParseCSV(systemFetch('authors.csv', null, true)), 'AuthorId')
-    data = dataJoin(data, dataParseCSV(systemFetch('hikes.csv', null, true)), 'BookId')
+    data = dataParseCSV(systemFetch('books.csv'))
+    data = dataJoin(data, dataParseCSV(systemFetch('authors.csv')), 'AuthorId')
+    data = dataJoin(data, dataParseCSV(systemFetch('hikes.csv')), 'BookId')
 
     # Add the book and ISBN link fields
     dataCalculatedField(data, 'Book', "argsLink(dayHikesArguments, [Book Title], objectNew('page', 'Hikes', 'bookId', [BookId]), true)")
@@ -93,9 +93,9 @@ async function dayHikesHikes(args):
     )
 
     # Load the book data
-    data = dataParseCSV(systemFetch('books.csv', null, true))
-    data = dataJoin(data, dataParseCSV(systemFetch('chapters.csv', null, true)), 'BookId')
-    data = dataJoin(data, dataParseCSV(systemFetch('hikes.csv', null, true)), "BookId + '-' + ChapterId")
+    data = dataParseCSV(systemFetch('books.csv'))
+    data = dataJoin(data, dataParseCSV(systemFetch('chapters.csv')), 'BookId')
+    data = dataJoin(data, dataParseCSV(systemFetch('hikes.csv')), "BookId + '-' + ChapterId")
 
     # Filter & sort
     filterVariables = objectNew( \
@@ -195,9 +195,9 @@ endfunction
 # The Day Hikes Correlation page
 async function dayHikesCorrelation():
     # Load the book data
-    data = dataParseCSV(systemFetch('books.csv', null, true))
-    data = dataJoin(data, dataParseCSV(systemFetch('chapters.csv', null, true)), 'BookId')
-    data = dataJoin(data, dataParseCSV(systemFetch('hikes.csv', null, true)), "[BookId] + '-' + [ChapterId]")
+    data = dataParseCSV(systemFetch('books.csv'))
+    data = dataJoin(data, dataParseCSV(systemFetch('chapters.csv')), 'BookId')
+    data = dataJoin(data, dataParseCSV(systemFetch('hikes.csv')), "[BookId] + '-' + [ChapterId]")
 
     # Add the unique ID calculated field
     dataCalculatedField(data, 'UniqueId', "BookId + ', ' + ChapterId + ', ' + HikeId")
