@@ -118,7 +118,16 @@ async function dayHikesHikes(args):
             '(gainMax == null || [Elevation Gain (ft)] <= gainMax)', \
         filterVariables \
     )
-    dataSort(data, arrayNew(arrayNew('BookId'), arrayNew('ChapterId'), arrayNew('Rating', true), arrayNew('Difficulty'), arrayNew('Hike Title')))
+    dataSort(data, arrayNew( \
+        arrayNew('BookId'), \
+        arrayNew('ChapterId'), \
+        arrayNew('Rating', true), \
+        arrayNew('Difficulty'), \
+        arrayNew('Hike Title') \
+    ))
+
+    # Compute the WTA links
+    dataCalculatedField(data, 'WTA', 'dayHikesWTA([Hike Title])', objectNew('dayHikesWTA', dayHikesWTA))
 
     # Count the filtered hikes by book
     dataBooks = dataAggregate(data, objectNew( \
@@ -181,15 +190,35 @@ async function dayHikesHikes(args):
             'ChapterId', \
             'HikeId', \
             'Hike Title', \
+            'WTA', \
             'Rating', \
             'Difficulty', \
             'Distance (mi)', \
             'Elevation Gain (ft)', \
             'High Point (ft)', \
             'Season' \
+        ), \
+        'formats', objectNew( \
+            'WTA', objectNew('markdown', true) \
         ) \
     ))
 endfunction
+
+
+function dayHikesWTA(hikeTitle):
+    wta = stringLower(hikeTitle)
+    wta = regexReplace(dayHikesWTARegexStart, wta, '')
+    wta = regexReplace(dayHikesWTARegexEnd, wta, '')
+    wta = regexReplace(dayHikesWTARegexBlank, wta, '')
+    wta = regexReplace(dayHikesWTARegexDash, wta, '-')
+    return '[WTA](https://www.wta.org/go-hiking/hikes/' + urlEncodeComponent(wta) + ')'
+endfunction
+
+
+dayHikesWTARegexStart = regexNew('^[^A-Za-z0-9]+')
+dayHikesWTARegexEnd = regexNew('[^A-Za-z0-9]+$')
+dayHikesWTARegexBlank = regexNew("[']+")
+dayHikesWTARegexDash = regexNew('[^A-Za-z0-9]+')
 
 
 # The Day Hikes Correlation page
