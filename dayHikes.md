@@ -3,6 +3,8 @@
 # https://github.com/craigahobbs/day-hikes/blob/main/LICENSE
 
 include <args.bare>
+include <data.bare>
+include <dataTable.bare>
 include <pager.bare>
 
 
