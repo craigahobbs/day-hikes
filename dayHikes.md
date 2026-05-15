@@ -4,6 +4,7 @@
 
 include <args.bare>
 include <data.bare>
+include <dataLineChart.bare>
 include <dataTable.bare>
 include <pager.bare>
 
