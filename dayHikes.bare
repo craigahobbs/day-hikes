@@ -6,6 +6,7 @@ include <data.bare>
 include <dataLineChart.bare>
 include <dataTable.bare>
 include <pager.bare>
+include <url.bare>
 
 
 async function dayHikesMain():
